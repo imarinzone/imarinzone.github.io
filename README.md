@@ -1,37 +1,63 @@
-## Welcome to GitHub Pages
+# Portfolio Website - Arindam Kumar Nath
 
-You can use the [editor on GitHub](https://github.com/imarinzone/imarinzone.github.io/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+A modern, responsive portfolio website showcasing professional experience and skills in backend development, cloud technologies, and software engineering.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## 🚀 Quick Start
 
-### Markdown
+### Option 1: Direct File Access
+Simply open `index.html` in your web browser.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### Option 2: Local Server (Recommended)
+```bash
+# Using Python 3
+python -m http.server 8000
 
-```markdown
-Syntax highlighted code block
+# Using Python 2
+python -m SimpleHTTPServer 8000
 
-# Header 1
-## Header 2
-### Header 3
+# Using Node.js (if you have it installed)
+npx serve .
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+# Using PHP
+php -S localhost:8000
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Then visit `http://localhost:8000` in your browser.
 
-### Jekyll Themes
+## 📁 Project Structure
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/imarinzone/imarinzone.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+```
+├── index.html          # Main HTML file with embedded resume data
+├── styles.css          # CSS styling and responsive design
+├── app.js             # JavaScript functionality and data binding
+├── _config.yml        # Jekyll configuration (for GitHub Pages)
+├── resume/
+│   └── resume-data.json # Resume data in JSON format
+└── README.md          # This file
+```
 
-### Support or Contact
+## ✏️ Customization
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+### Update Content
+- **Resume Data**: Edit the JSON object in `index.html` (id: `resume-data`) or update `resume/resume-data.json`
+- **Featured Topics**: Modify the `topics` array in `app.js` to change the interactive cards
+- **Styling**: Customize colors, fonts, and layout in `styles.css`
+
+### Key Features
+- 🌙 Dark/Light theme toggle
+- 📱 Fully responsive design
+- 🎯 Interactive topic cards with filtering
+- 📊 Dynamic data binding from JSON
+- ⚡ Fast loading with modern CSS and vanilla JavaScript
+
+## 🛠️ Technologies Used
+
+- **HTML5** - Semantic markup
+- **CSS3** - Modern styling with CSS Grid and Flexbox
+- **Vanilla JavaScript** - No frameworks, pure JS for performance
+- **Google Fonts** - Inter font family
+- **GitHub Pages** - Hosting (via Jekyll)
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).

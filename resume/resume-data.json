@@ -1,0 +1,421 @@
+{
+    "basics": {
+      "name": "Arindam Kumar Nath",
+      "headline": "Software Developer",
+      "email": "imarinzone@gmail.com",
+      "phone": "+91-8904488762",
+      "location": "Kolkata, India",
+      "url": {
+        "label": "",
+        "href": ""
+      },
+      "customFields": [],
+      "picture": {
+        "url": "",
+        "size": 200,
+        "aspectRatio": 1,
+        "borderRadius": 999,
+        "effects": {
+          "hidden": false,
+          "border": false,
+          "grayscale": false
+        }
+      }
+    },
+    "sections": {
+      "summary": {
+        "name": "Summary",
+        "columns": 1,
+        "separateLinks": true,
+        "visible": true,
+        "id": "summary",
+        "content": "<p>Experienced Software Developer with 5+ years of expertise in GoLang, Python, and cloud-based web services. Proven track record of designing scalable and secure solutions, leveraging Kubernetes, AWS, and microservices architecture. Passionate about backend development and optimizing system reliability and efficiency.</p>"
+      },
+      "awards": {
+        "name": "Awards",
+        "columns": 1,
+        "separateLinks": true,
+        "visible": true,
+        "id": "awards",
+        "items": []
+      },
+      "certifications": {
+        "name": "Certifications",
+        "columns": 1,
+        "separateLinks": true,
+        "visible": true,
+        "id": "certifications",
+        "items": []
+      },
+      "education": {
+        "name": "Education",
+        "columns": 3,
+        "separateLinks": true,
+        "visible": true,
+        "id": "education",
+        "items": [
+          {
+            "id": "gu7yjw3v3w41h3bbawpl2q5t",
+            "visible": true,
+            "institution": "VTU",
+            "studyType": "B.E.",
+            "area": "Computer Science",
+            "score": "7.0 CGPA",
+            "date": "2015 – 2019",
+            "summary": "<p>Vemana IT <br>• Bengaluru, Karnataka </p>",
+            "url": {
+              "label": "",
+              "href": ""
+            }
+          },
+          {
+            "id": "u891n483t3ua1fhs7wov4fe3",
+            "visible": true,
+            "institution": "CBSE",
+            "studyType": "XII",
+            "area": "Computer Science",
+            "score": "82.4%",
+            "date": "2015",
+            "summary": "<p>K.V. Hebbal <br>• Bengaluru, Karnataka</p>",
+            "url": {
+              "label": "",
+              "href": ""
+            }
+          },
+          {
+            "id": "kp2yvtfh0jcoezblgifjeorw",
+            "visible": true,
+            "institution": "CBSE",
+            "studyType": "X",
+            "area": "",
+            "score": "9.2 CGPA",
+            "date": "2013",
+            "summary": "<p>K.V. A.F. Station <br>• Barrackpore, West Bengal</p>",
+            "url": {
+              "label": "",
+              "href": ""
+            }
+          }
+        ]
+      },
+      "experience": {
+        "name": "Experience",
+        "columns": 1,
+        "separateLinks": true,
+        "visible": true,
+        "id": "experience",
+        "items": [
+          {
+            "id": "hccjgansoxbqoezw58igm8ka",
+            "visible": true,
+            "company": "Coffeebeans.io",
+            "position": "Software Engineer",
+            "location": "",
+            "date": "Jan 2025 – Present",
+            "summary": "<p>Client: <strong>Gojek</strong></p><ul><li><p>Managed the introduction and deployment of new features for the Logistics team, ensuring seamless integration and performance.</p></li><li><p>Documented microservices flow architecture and provided knowledge transfer (KT) to team members, improving team efficiency.</p></li></ul>",
+            "url": {
+              "label": "",
+              "href": ""
+            }
+          },
+          {
+            "id": "lwchph7gktamgupthd7x0aec",
+            "visible": true,
+            "company": "UST Global",
+            "position": "Software Engineer - SRE",
+            "location": "",
+            "date": "Aug 2023 – Oct 2024",
+            "summary": "<p>Client: <strong>Walmart Global Tech</strong></p><ul><li><p>Developed an internal testing framework using <strong>Kubernetes</strong> and <strong>Golang</strong>, preventing critical (p0) issues from reaching production and improving system reliability.</p></li><li><p>Implemented <strong>GRPC</strong> and <strong>GraphQL</strong> for Walmart’s prescription-based sales, reducing API calls and ensuring low-latency communication.</p></li></ul>",
+            "url": {
+              "label": "Walmart",
+              "href": ""
+            }
+          },
+          {
+            "id": "rfyzqmnoob731l3hhhllif6q",
+            "visible": true,
+            "company": "BYJU'S",
+            "position": "Software Engineer",
+            "location": "",
+            "date": "Apr 2022 – Jul 2023",
+            "summary": "<ul><li><p>Built a centralized tuition database using <strong>Golang</strong> and <strong>PostgreSQL</strong>, enabling efficient school data management and admin UI integration.</p></li><li><p>Developed Kafka-based producer-consumer applications to streamline microservices communication, serving 10k users/sec during Annual Talent Hunt Exams.</p></li></ul>",
+            "url": {
+              "label": "Byju's",
+              "href": ""
+            }
+          },
+          {
+            "id": "vffx35swrdowj68hvk5zk8z7",
+            "visible": true,
+            "company": "Replicon",
+            "position": "Software Engineer",
+            "location": "",
+            "date": "Aug 2019 – Mar 2022",
+            "summary": "<ul><li><p>Engineered REST APIs in <strong>Golang</strong>, optimizing team-specific frameworks and improving deliverable efficiency.</p></li><li><p>Integrated feature flags into the scripting engine, reducing release risks and accelerating the deployment process.</p></li></ul>",
+            "url": {
+              "label": "Replicon",
+              "href": ""
+            }
+          }
+        ]
+      },
+      "volunteer": {
+        "name": "Volunteering",
+        "columns": 1,
+        "separateLinks": true,
+        "visible": true,
+        "id": "volunteer",
+        "items": []
+      },
+      "interests": {
+        "name": "Interests",
+        "columns": 1,
+        "separateLinks": true,
+        "visible": true,
+        "id": "interests",
+        "items": []
+      },
+      "languages": {
+        "name": "Languages",
+        "columns": 3,
+        "separateLinks": true,
+        "visible": true,
+        "id": "languages",
+        "items": [
+          {
+            "id": "or3ci1jbhe7nzm32cvcokibh",
+            "visible": true,
+            "name": "English",
+            "description": "Fluent",
+            "level": 0
+          },
+          {
+            "id": "p6u4r2c5pwvfz99x927zlsi4",
+            "visible": true,
+            "name": "Hindi",
+            "description": "Fluent",
+            "level": 0
+          }
+        ]
+      },
+      "profiles": {
+        "name": "Profiles",
+        "columns": 3,
+        "separateLinks": true,
+        "visible": true,
+        "id": "profiles",
+        "items": [
+          {
+            "id": "m85ekips1prjpn08lcobe7kw",
+            "visible": true,
+            "network": "Linkedin",
+            "username": "linkedin/in/imarinzone",
+            "icon": "linkedin",
+            "url": {
+              "label": "",
+              "href": "https://www.linkedin.com/in/imarinzone/"
+            }
+          },
+          {
+            "id": "eq3ffh2cfx7zsqj0b3tx78r7",
+            "visible": true,
+            "network": "github",
+            "username": "github.com/imarinzone",
+            "icon": "github",
+            "url": {
+              "label": "",
+              "href": "https://github.com/imarinzone"
+            }
+          }
+        ]
+      },
+      "projects": {
+        "name": "Projects",
+        "columns": 1,
+        "separateLinks": true,
+        "visible": false,
+        "id": "projects",
+        "items": [
+          {
+            "id": "tc9yykz748urmuf3f15rx832",
+            "visible": true,
+            "name": "Live Web Chat",
+            "description": "Technologies: Golang, Google Firebase, Heroku",
+            "date": "",
+            "summary": "<p>Developed a live chat application using Golang and Google Firebase, enabling real-time communication for users.</p>",
+            "keywords": [],
+            "url": {
+              "label": "",
+              "href": ""
+            }
+          },
+          {
+            "id": "htwtcn39wo3nu6k7224skhfm",
+            "visible": true,
+            "name": "Expense Tracking",
+            "description": "Technologies: Python, Jupyter Notebook",
+            "date": "",
+            "summary": "<p>Created a Python-based expense tracking tool with Jupyter Notebook, providing visual insights into personal finance management.</p>",
+            "keywords": [],
+            "url": {
+              "label": "",
+              "href": ""
+            }
+          }
+        ]
+      },
+      "publications": {
+        "name": "Publications",
+        "columns": 1,
+        "separateLinks": true,
+        "visible": true,
+        "id": "publications",
+        "items": []
+      },
+      "references": {
+        "name": "References",
+        "columns": 1,
+        "separateLinks": true,
+        "visible": true,
+        "id": "references",
+        "items": []
+      },
+      "skills": {
+        "name": "Skills",
+        "columns": 3,
+        "separateLinks": true,
+        "visible": true,
+        "id": "skills",
+        "items": [
+          {
+            "id": "j1n3oc1upap0fe10j0qupvuv",
+            "visible": true,
+            "name": "Golang",
+            "description": "",
+            "level": 0,
+            "keywords": []
+          },
+          {
+            "id": "u95jz92ma37gv6weyo5asxvu",
+            "visible": true,
+            "name": "Docker",
+            "description": "",
+            "level": 0,
+            "keywords": []
+          },
+          {
+            "id": "cwn4urt5x1gbyi8nrev99ajh",
+            "visible": true,
+            "name": "Python",
+            "description": "",
+            "level": 0,
+            "keywords": []
+          },
+          {
+            "id": "w4681z5e66doxy76zlmyjopf",
+            "visible": true,
+            "name": "PostgreSQL/MySQL",
+            "description": "",
+            "level": 0,
+            "keywords": []
+          },
+          {
+            "id": "esvvyeadiynjnmlsqh8hkflj",
+            "visible": true,
+            "name": "AWS / Azure",
+            "description": "",
+            "level": 0,
+            "keywords": []
+          },
+          {
+            "id": "vhvinxxcktxb5xjxie5riqnt",
+            "visible": true,
+            "name": "Git",
+            "description": "",
+            "level": 0,
+            "keywords": []
+          },
+          {
+            "id": "bbp1q8q1dpdbqqlivm4sbkxm",
+            "visible": true,
+            "name": "Kubernetes",
+            "description": "",
+            "level": 0,
+            "keywords": []
+          },
+          {
+            "id": "wqsn9w2bx1w5dlfwj8sg6nlq",
+            "visible": true,
+            "name": "REST APIs / GraphQL / gRPC",
+            "description": "",
+            "level": 0,
+            "keywords": []
+          },
+          {
+            "id": "jjm5k3bfsqrozgek26eldqq4",
+            "visible": true,
+            "name": "Terraform",
+            "description": "",
+            "level": 0,
+            "keywords": []
+          }
+        ]
+      },
+      "custom": {}
+    },
+    "metadata": {
+      "template": "bronzor",
+      "layout": [
+        [
+          [
+            "summary",
+            "experience",
+            "volunteer",
+            "projects",
+            "interests",
+            "references"
+          ],
+          [
+            "education",
+            "skills",
+            "certifications",
+            "languages",
+            "profiles",
+            "publications",
+            "awards"
+          ]
+        ]
+      ],
+      "css": {
+        "value": "* {\n\toutline: 1px solid #000;\n\toutline-offset: 4px;\n}",
+        "visible": false
+      },
+      "page": {
+        "margin": 12,
+        "format": "a4",
+        "options": {
+          "breakLine": false,
+          "pageNumbers": true
+        }
+      },
+      "theme": {
+        "background": "#ffffff",
+        "text": "#000000",
+        "primary": "#e69d00"
+      },
+      "typography": {
+        "font": {
+          "family": "Lato",
+          "subset": "latin",
+          "variants": [
+            "regular"
+          ],
+          "size": 14.25
+        },
+        "lineHeight": 1.5,
+        "hideIcons": false,
+        "underlineLinks": true
+      },
+      "notes": ""
+    }
+  }
