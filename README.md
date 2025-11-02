@@ -1,3 +1,9 @@
+<div align="center">
+  <img src="profile.svg" alt="Arindam Kumar Nath" width="200" style="border-radius: 50%; border: 4px solid #e69d00;" />
+  <br>
+  <small><em>Profile art available in <a href="src/profile.html">profile.html</a></em></small>
+</div>
+
 # Portfolio Website - Arindam Kumar Nath
 
 A modern, responsive portfolio website showcasing professional experience and skills in backend development, cloud technologies, and software engineering.

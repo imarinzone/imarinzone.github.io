@@ -6,10 +6,23 @@ const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 /* Theme */
 const body = document.body;
 const themeToggle = document.getElementById('themeToggle');
+const themeColorMeta = document.querySelector('meta[name="theme-color"]');
 const savedTheme = localStorage.getItem('theme');
 if (savedTheme) body.className = savedTheme;
-function updateThemeIcon() { themeToggle.querySelector('.icon').textContent = body.classList.contains('theme-dark') ? '☾' : '☀'; }
+
+function updateThemeIcon() { 
+  themeToggle.querySelector('.icon').textContent = body.classList.contains('theme-dark') ? '☾' : '☀'; 
+}
+
+function updateThemeColor() {
+  if (themeColorMeta) {
+    themeColorMeta.setAttribute('content', body.classList.contains('theme-dark') ? '#0b0f14' : '#f8f9fa');
+  }
+}
+
 updateThemeIcon();
+updateThemeColor();
+
 themeToggle.addEventListener('click', () => {
   if (body.classList.contains('theme-dark')) {
     body.classList.remove('theme-dark');
@@ -20,6 +33,7 @@ themeToggle.addEventListener('click', () => {
   }
   localStorage.setItem('theme', body.className);
   updateThemeIcon();
+  updateThemeColor();
 });
 
 /* Bind basics */
@@ -182,9 +196,10 @@ const expList = document.getElementById('experienceList');
 
 /* Projects */
 const projectsGrid = document.getElementById('projectsGrid');
+const projectCards = [];
 (resume.sections?.projects?.items || []).filter(p => p.visible !== false).forEach(p => {
   const el = document.createElement('article');
-  el.className = 'card';
+  el.className = 'card tilt';
   el.innerHTML = `
     <div class="card-title">${p.name}</div>
     <div class="card-meta">${p.description || ''}</div>
@@ -195,7 +210,9 @@ const projectsGrid = document.getElementById('projectsGrid');
     </div>
   `;
   projectsGrid.appendChild(el);
+  projectCards.push(el);
 });
+enableTilt(projectCards);
 
 /* Education */
 const eduList = document.getElementById('educationList');
@@ -218,3 +235,32 @@ const skillsCloud = document.getElementById('skillsCloud');
   el.textContent = s.name;
   skillsCloud.appendChild(el);
 });
+
+/* Load Profile Art */
+async function loadProfileArt() {
+  try {
+    const response = await fetch('./src/profile.html');
+    const html = await response.text();
+    
+    // Load into hero section
+    const profileArt = document.getElementById('profileArt');
+    if (profileArt) {
+      profileArt.innerHTML = html;
+    }
+    
+  } catch (error) {
+    console.log('Profile art not found, using fallback');
+    // Fallback: create a simple profile placeholder
+    const profileArt = document.getElementById('profileArt');
+    if (profileArt) {
+      profileArt.innerHTML = '<img src="profile.svg" alt="Profile" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;" />';
+    }
+  }
+}
+
+// Load profile art when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', loadProfileArt);
+} else {
+  loadProfileArt();
+}
