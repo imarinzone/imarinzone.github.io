@@ -8,7 +8,22 @@ const body = document.body;
 const themeToggle = document.getElementById('themeToggle');
 const themeColorMeta = document.querySelector('meta[name="theme-color"]');
 const savedTheme = localStorage.getItem('theme');
-if (savedTheme) body.className = savedTheme;
+const savedPalette = localStorage.getItem('palette') || 'default';
+
+// Apply saved theme and palette
+if (savedTheme) {
+  const themeClasses = savedTheme.split(' ').filter(c => c);
+  themeClasses.forEach(cls => {
+    if (cls.startsWith('theme-') || cls.startsWith('palette-')) {
+      body.classList.add(cls);
+    }
+  });
+}
+
+// If no palette in saved theme, apply saved palette
+if (savedPalette && savedPalette !== 'default' && !body.classList.contains(`palette-${savedPalette}`)) {
+  body.classList.add(`palette-${savedPalette}`);
+}
 
 function updateThemeIcon() { 
   themeToggle.querySelector('.icon').textContent = body.classList.contains('theme-dark') ? '☾' : '☀'; 
@@ -18,6 +33,11 @@ function updateThemeColor() {
   if (themeColorMeta) {
     themeColorMeta.setAttribute('content', body.classList.contains('theme-dark') ? '#0b0f14' : '#f8f9fa');
   }
+}
+
+function saveTheme() {
+  const classes = Array.from(body.classList).filter(c => c.startsWith('theme-') || c.startsWith('palette-')).join(' ');
+  localStorage.setItem('theme', classes);
 }
 
 updateThemeIcon();
@@ -31,10 +51,62 @@ themeToggle.addEventListener('click', () => {
     body.classList.remove('theme-light');
     body.classList.add('theme-dark');
   }
-  localStorage.setItem('theme', body.className);
+  saveTheme();
   updateThemeIcon();
   updateThemeColor();
 });
+
+/* Color Palette */
+const paletteToggle = document.getElementById('paletteToggle');
+const paletteMenu = document.getElementById('paletteMenu');
+const paletteWrapper = document.querySelector('.color-palette-wrapper');
+const paletteOptions = document.querySelectorAll('.palette-option');
+
+// Toggle palette menu
+paletteToggle.addEventListener('click', (e) => {
+  e.stopPropagation();
+  paletteWrapper.classList.toggle('active');
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+  if (!paletteWrapper.contains(e.target)) {
+    paletteWrapper.classList.remove('active');
+  }
+});
+
+// Handle palette selection
+paletteOptions.forEach(option => {
+  option.addEventListener('click', () => {
+    const palette = option.getAttribute('data-palette');
+    
+    // Remove all palette classes
+    body.classList.remove('palette-default', 'palette-blue', 'palette-purple', 'palette-green', 'palette-red', 'palette-orange');
+    
+    // Add selected palette class (if not default)
+    if (palette !== 'default') {
+      body.classList.add(`palette-${palette}`);
+    }
+    
+    // Update active state
+    paletteOptions.forEach(opt => opt.classList.remove('active'));
+    option.classList.add('active');
+    
+    // Save preference
+    localStorage.setItem('palette', palette);
+    saveTheme();
+    
+    // Close menu
+    paletteWrapper.classList.remove('active');
+  });
+});
+
+// Set active palette on load
+const activePaletteOption = document.querySelector(`[data-palette="${savedPalette}"]`);
+if (activePaletteOption) {
+  paletteOptions.forEach(opt => opt.classList.remove('active'));
+  activePaletteOption.classList.add('active');
+}
 
 /* Bind basics */
 $('[data-name]').textContent = resume.basics.name;
