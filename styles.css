@@ -361,7 +361,6 @@ body.theme-light .grid-glow { opacity: 0.4; }
 }
 .muted-link:hover {
   color: var(--text);
-  text-decoration: underline;
 }
 
 .chip-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px; }
@@ -418,15 +417,13 @@ body.theme-dark .card:hover { box-shadow: 0 12px 35px rgba(0,0,0,0.55); }
 }
 .timeline-head { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; justify-content: space-between; margin-bottom: 6px; }
 .timeline-title { font-weight: 700; }
-.timeline-title .company-link {
-  color: var(--text);
+/* Remove underlines from all links */
+a {
   text-decoration: none;
-  transition: color 0.2s ease;
-  border-bottom: 1px solid transparent;
 }
-.timeline-title .company-link:hover {
-  color: var(--primary);
-  border-bottom-color: var(--primary);
+
+.timeline-title .company-link {
+  text-decoration: none;
 }
 .timeline-meta { color: var(--muted); font-size: 13px; }
 .timeline-body { color: var(--text-soft); }
