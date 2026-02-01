@@ -24,7 +24,8 @@ async function loadResumeData() {
           items: (data.sections.experience.items || []).map(item => ({
             ...item,
             date: item.period || '',
-            summary: item.description || ''
+            summary: item.description || '',
+            website: item.website || null
           }))
         } : { items: [] },
         projects: data.sections?.projects ? {
@@ -44,7 +45,8 @@ async function loadResumeData() {
             summary: item.description || ''
           }))
         } : { items: [] },
-        skills: data.sections?.skills || { items: [] }
+        skills: data.sections?.skills || { items: [] },
+        languages: data.sections?.languages || { items: [] }
       }
     };
     
@@ -297,10 +299,16 @@ renderTopicCards();
   (resume.sections?.experience?.items || []).forEach(item => {
     const el = document.createElement('article');
     el.className = 'timeline-item';
+    
+    // Create company name with link if website exists
+    const companyName = item.website?.url 
+      ? `<a href="${item.website.url}" target="_blank" rel="noopener" class="company-link">${item.company}</a>`
+      : item.company;
+    
     el.innerHTML = `
       <div class="timeline-head">
         <div>
-          <div class="timeline-title">${item.position} • ${item.company}</div>
+          <div class="timeline-title">${item.position} • ${companyName}</div>
           <div class="timeline-meta">${item.date}</div>
         </div>
       </div>
@@ -369,6 +377,23 @@ renderTopicCards();
   }
 }
 
+/* Apply section visibility based on config */
+function applySectionVisibility() {
+  // Hide/show sections
+  Object.keys(CONFIG.sections).forEach(sectionId => {
+    const section = document.getElementById(sectionId);
+    const navLink = document.querySelector(`a.nav-link[href="#${sectionId}"]`);
+    
+    if (section) {
+      section.style.display = CONFIG.sections[sectionId] ? '' : 'none';
+    }
+    
+    if (navLink) {
+      navLink.style.display = CONFIG.sections[sectionId] ? '' : 'none';
+    }
+  });
+}
+
 /* Load Profile Art */
 async function loadProfileArt() {
   try {
@@ -400,7 +425,11 @@ if (document.readyState === 'loading') {
 
 // Load resume data when DOM is ready
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', loadResumeData);
+  document.addEventListener('DOMContentLoaded', () => {
+    applySectionVisibility();
+    loadResumeData();
+  });
 } else {
+  applySectionVisibility();
   loadResumeData();
 }

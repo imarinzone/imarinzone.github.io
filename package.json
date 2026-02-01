@@ -1,0 +1,16 @@
+{
+  "name": "portfolio-website",
+  "version": "1.0.0",
+  "description": "Portfolio website for Arindam Kumar Nath",
+  "main": "app.js",
+  "scripts": {
+    "test": "node tests/json-processing.test.js"
+  },
+  "keywords": [
+    "portfolio",
+    "resume",
+    "website"
+  ],
+  "author": "Arindam Kumar Nath",
+  "license": "MIT"
+}

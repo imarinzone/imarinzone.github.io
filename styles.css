@@ -340,7 +340,7 @@ body.theme-light .orb-2 {
 }
 .grid-glow { 
   position: absolute; 
-  inset: 18% 4% 6% 16%; 
+  inset: 8% 4% 6% 16%; 
   background: linear-gradient(transparent, var(--grid-glow) 40%, transparent), 
               linear-gradient(90deg, transparent, var(--grid-glow) 40%, transparent); 
   background-size: 100% 18px, 18px 100%; 
@@ -418,6 +418,16 @@ body.theme-dark .card:hover { box-shadow: 0 12px 35px rgba(0,0,0,0.55); }
 }
 .timeline-head { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; justify-content: space-between; margin-bottom: 6px; }
 .timeline-title { font-weight: 700; }
+.timeline-title .company-link {
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  border-bottom: 1px solid transparent;
+}
+.timeline-title .company-link:hover {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
 .timeline-meta { color: var(--muted); font-size: 13px; }
 .timeline-body { color: var(--text-soft); }
 

@@ -32,11 +32,22 @@ const CONFIG = {
   // Display text
   display: {
     headlineSuffix: ' — Backend & Cloud',
-    featuredTitle: 'Featured: Cloud‑Native Backend',
+    featuredTitle: 'Areas of Expertise',
     footerText: {
       availability: 'Open to backend and platform roles',
       location: 'Kolkata, India • Remote friendly'
     }
+  },
+
+  // Section visibility configuration
+  // Set to false to hide a section
+  sections: {
+    featured: true,      // Areas of Expertise section
+    experience: true,     // Experience section
+    projects: true,       // Projects section
+    education: true,      // Education section
+    skills: true,        // Skills section
+    languages: true       // Languages section
   },
 
   // Animation settings
