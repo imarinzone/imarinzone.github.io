@@ -348,12 +348,21 @@ body.theme-light .orb-2 {
   opacity: 0.6; 
 }
 body.theme-light .grid-glow { opacity: 0.4; }
-.profile-art { position: absolute; top: 20px; right: 60px; width: 220px; height: 220px; overflow: hidden; border-radius: 50%; border: 3px solid var(--primary); background: var(--bg-elev); opacity: 0.9; display: flex; align-items: center; justify-content: center; }
+.profile-art { position: absolute; top: 20px; right: 60px; width: 220px; height: 220px; overflow: hidden; border-radius: 50%; border: 3px solid var(--primary); background: #000000; opacity: 0.9; display: flex; align-items: center; justify-content: center; }
 .profile-art pre { margin: 0px; padding: 0; font-size: 2px; line-height: 1; transform: scale(0.5); transform-origin: top left; width: 400px; height: 400px; position: absolute; top: -30px; left: -45px; }
 
 .section { padding: 28px 0; }
 .section-head h2 { margin: 0 0 8px; font-size: 22px; }
 .section-head .muted { color: var(--muted); margin: 0 0 14px; }
+.muted-link {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.muted-link:hover {
+  color: var(--text);
+  text-decoration: underline;
+}
 
 .chip-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px; }
 .chip { 
@@ -414,6 +423,24 @@ body.theme-dark .card:hover { box-shadow: 0 12px 35px rgba(0,0,0,0.55); }
 
 .projects .card-title { font-size: 16px; }
 .edu-list { display: grid; gap: 12px; }
+.languages-list { display: flex; flex-wrap: wrap; gap: 16px; }
+.language-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.language-name {
+  font-weight: 500;
+  color: var(--text);
+}
+.language-fluency {
+  color: var(--muted);
+  font-size: 0.9em;
+}
 .edu-item { 
   border: 1px solid var(--border); 
   background: var(--bg-elev); 

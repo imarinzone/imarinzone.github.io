@@ -1,373 +1,377 @@
 {
-    "basics": {
-      "name": "Arindam Kumar Nath",
-      "headline": "Software Developer",
-      "email": "imarinzone@gmail.com",
-      "phone": "+91-8904488762",
-      "location": "Kolkata, India",
-      "url": {
-        "label": "",
-        "href": ""
-      },
-      "customFields": [],
-      "picture": {
-        "url": "",
-        "size": 200,
-        "aspectRatio": 1,
-        "borderRadius": 999,
-        "effects": {
+  "picture": {
+    "hidden": false,
+    "url": "",
+    "size": 200,
+    "rotation": 0,
+    "aspectRatio": 1,
+    "borderRadius": 100,
+    "borderColor": "rgba(0, 0, 0, 0)",
+    "borderWidth": 0,
+    "shadowColor": "rgba(0, 0, 0, 0.5)",
+    "shadowWidth": 0
+  },
+  "basics": {
+    "name": "Arindam Kumar Nath",
+    "headline": "Software Developer",
+    "email": "imarinzone@gmail.com",
+    "phone": "",
+    "location": "Bengaluru, India",
+    "website": {
+      "url": "https://imarinzone.github.io",
+      "label": "Portfolio"
+    },
+    "customFields": []
+  },
+  "summary": {
+    "title": "Summary",
+    "columns": 1,
+    "hidden": false,
+    "content": "<p>Experienced Software Developer with 6+ years of expertise in GoLang, Python, and cloud-based web services. Proven track record of designing scalable and secure solutions, leveraging Kubernetes, AWS, and microservices architecture. Passionate about backend development and optimizing system reliability and efficiency.</p>"
+  },
+  "sections": {
+    "profiles": {
+      "title": "Profiles",
+      "columns": 3,
+      "hidden": false,
+      "items": [
+        {
+          "id": "m85ekips1prjpn08lcobe7kw",
           "hidden": false,
-          "border": false,
-          "grayscale": false
+          "icon": "linkedin",
+          "network": "Linkedin",
+          "username": "linkedin/in/imarinzone",
+          "website": {
+            "url": "https://www.linkedin.com/in/imarinzone/",
+            "label": ""
+          }
+        },
+        {
+          "id": "eq3ffh2cfx7zsqj0b3tx78r7",
+          "hidden": false,
+          "icon": "github",
+          "network": "github",
+          "username": "github.com/imarinzone",
+          "website": {
+            "url": "https://github.com/imarinzone",
+            "label": ""
+          }
         }
-      }
+      ]
     },
-    "sections": {
-      "summary": {
-        "name": "Summary",
-        "columns": 1,
-        "separateLinks": true,
-        "visible": true,
-        "id": "summary",
-        "content": "<p>Experienced Software Developer with 5+ years of expertise in GoLang, Python, and cloud-based web services. Proven track record of designing scalable and secure solutions, leveraging Kubernetes, AWS, and microservices architecture. Passionate about backend development and optimizing system reliability and efficiency.</p>"
-      },
-      "awards": {
-        "name": "Awards",
-        "columns": 1,
-        "separateLinks": true,
-        "visible": true,
-        "id": "awards",
-        "items": []
-      },
-      "certifications": {
-        "name": "Certifications",
-        "columns": 1,
-        "separateLinks": true,
-        "visible": true,
-        "id": "certifications",
-        "items": []
-      },
-      "education": {
-        "name": "Education",
-        "columns": 3,
-        "separateLinks": true,
-        "visible": true,
-        "id": "education",
-        "items": [
-          {
-            "id": "gu7yjw3v3w41h3bbawpl2q5t",
-            "visible": true,
-            "institution": "VTU",
-            "studyType": "B.E.",
-            "area": "Computer Science",
-            "score": "7.0 CGPA",
-            "date": "2015 – 2019",
-            "summary": "<p>Vemana IT <br>• Bengaluru, Karnataka </p>",
-            "url": {
-              "label": "",
-              "href": ""
-            }
+    "experience": {
+      "title": "Experience",
+      "columns": 1,
+      "hidden": false,
+      "items": [
+        {
+          "id": "hccjgansoxbqoezw58igm8ka",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": true
           },
-          {
-            "id": "u891n483t3ua1fhs7wov4fe3",
-            "visible": true,
-            "institution": "CBSE",
-            "studyType": "XII",
-            "area": "Computer Science",
-            "score": "82.4%",
-            "date": "2015",
-            "summary": "<p>K.V. Hebbal <br>• Bengaluru, Karnataka</p>",
-            "url": {
-              "label": "",
-              "href": ""
-            }
+          "company": "Coffeebeans.io",
+          "position": "Software Engineer",
+          "location": "",
+          "period": "Jan 2025 – March 2026",
+          "website": {
+            "url": "https://coffeebeans.ai",
+            "label": ""
           },
-          {
-            "id": "kp2yvtfh0jcoezblgifjeorw",
-            "visible": true,
-            "institution": "CBSE",
-            "studyType": "X",
-            "area": "",
-            "score": "9.2 CGPA",
-            "date": "2013",
-            "summary": "<p>K.V. A.F. Station <br>• Barrackpore, West Bengal</p>",
-            "url": {
-              "label": "",
-              "href": ""
-            }
-          }
-        ]
-      },
-      "experience": {
-        "name": "Experience",
-        "columns": 1,
-        "separateLinks": true,
-        "visible": true,
-        "id": "experience",
-        "items": [
-          {
-            "id": "hccjgansoxbqoezw58igm8ka",
-            "visible": true,
-            "company": "Coffeebeans.io",
-            "position": "Software Engineer",
-            "location": "",
-            "date": "Jan 2025 – Present",
-            "summary": "<p>Client: <strong>Gojek</strong></p><ul><li><p>Managed the introduction and deployment of new features for the Logistics team, ensuring seamless integration and performance.</p></li><li><p>Documented microservices flow architecture and provided knowledge transfer (KT) to team members, improving team efficiency.</p></li></ul>",
-            "url": {
-              "label": "",
-              "href": ""
-            }
+          "description": "<p>Client: <a target=\"_blank\" rel=\"noopener nofollow\" href=\"https://npci.org.in\"><strong>NPCI</strong></a></p><ul><li><p>Working with BHIM app team to launch Unified Bharat ev-Charging using <strong>Golang</strong> and <strong>Beckn Protocol.</strong></p></li><li><p><strong>Developed</strong> a robust, high-security authentication microservice supporting multi-tenancy from ground up to streamline login flows for critical CPO and Ev Charging Network.</p></li></ul><p>Client: <strong>KPC</strong></p><ul><li><p>Implemented OAuth 2.0 and Role-Based Access Control (<strong>RBAC</strong>) authentication on <strong>Azure AD</strong> with Outsystems applications via <strong>Python</strong> , ensuring secure and seamless login for users.</p></li><li><p>Integrated Google vertex <strong>RAG</strong> agent for chat bot integration.</p></li></ul><p>Client: <a target=\"_blank\" rel=\"noopener nofollow\" href=\"https://gojek.com\"><strong>Gojek</strong></a></p><ul><li><p>Developed and enhanced logistics microservices using <strong>Golang</strong>, ensuring high performance, scalability, and seamless system integration.</p></li><li><p><strong>Cloud migration</strong> initiatives from GCP to Tencent Cloud using custom Python automation scripts, achieving minimal downtime and ensuring risk mitigation.</p></li></ul><p></p>"
+        },
+        {
+          "id": "lwchph7gktamgupthd7x0aec",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": true
           },
-          {
-            "id": "lwchph7gktamgupthd7x0aec",
-            "visible": true,
-            "company": "UST Global",
-            "position": "Software Engineer - SRE",
-            "location": "",
-            "date": "Aug 2023 – Oct 2024",
-            "summary": "<p>Client: <strong>Walmart Global Tech</strong></p><ul><li><p>Developed an internal testing framework using <strong>Kubernetes</strong> and <strong>Golang</strong>, preventing critical (p0) issues from reaching production and improving system reliability.</p></li><li><p>Implemented <strong>GRPC</strong> and <strong>GraphQL</strong> for Walmart’s prescription-based sales, reducing API calls and ensuring low-latency communication.</p></li></ul>",
-            "url": {
-              "label": "Walmart",
-              "href": ""
-            }
+          "company": "UST Global",
+          "position": "Software Engineer - SRE",
+          "location": "",
+          "period": "Aug 2023 – Oct 2024",
+          "website": {
+            "url": "https://ust.com",
+            "label": "Walmart"
           },
-          {
-            "id": "rfyzqmnoob731l3hhhllif6q",
-            "visible": true,
-            "company": "BYJU'S",
-            "position": "Software Engineer",
-            "location": "",
-            "date": "Apr 2022 – Jul 2023",
-            "summary": "<ul><li><p>Built a centralized tuition database using <strong>Golang</strong> and <strong>PostgreSQL</strong>, enabling efficient school data management and admin UI integration.</p></li><li><p>Developed Kafka-based producer-consumer applications to streamline microservices communication, serving 10k users/sec during Annual Talent Hunt Exams.</p></li></ul>",
-            "url": {
-              "label": "Byju's",
-              "href": ""
-            }
+          "description": "<p>Client: <a target=\"_blank\" rel=\"noopener nofollow\" href=\"https://tech.walmart.com\"><strong>Walmart Global Tech</strong></a></p><ul><li><p>Developed an internal testing framework using <strong>Kubernetes</strong> and <strong>Golang</strong>, preventing critical (p0) issues from reaching production and improving system reliability.</p></li><li><p>Implemented <strong>GRPC</strong> and <strong>GraphQL</strong> for Walmart’s prescription-based sales, reducing API calls and ensuring low-latency communication.</p></li></ul><p></p>"
+        },
+        {
+          "id": "rfyzqmnoob731l3hhhllif6q",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": true
           },
-          {
-            "id": "vffx35swrdowj68hvk5zk8z7",
-            "visible": true,
-            "company": "Replicon",
-            "position": "Software Engineer",
-            "location": "",
-            "date": "Aug 2019 – Mar 2022",
-            "summary": "<ul><li><p>Engineered REST APIs in <strong>Golang</strong>, optimizing team-specific frameworks and improving deliverable efficiency.</p></li><li><p>Integrated feature flags into the scripting engine, reducing release risks and accelerating the deployment process.</p></li></ul>",
-            "url": {
-              "label": "Replicon",
-              "href": ""
-            }
-          }
-        ]
-      },
-      "volunteer": {
-        "name": "Volunteering",
-        "columns": 1,
-        "separateLinks": true,
-        "visible": true,
-        "id": "volunteer",
-        "items": []
-      },
-      "interests": {
-        "name": "Interests",
-        "columns": 1,
-        "separateLinks": true,
-        "visible": true,
-        "id": "interests",
-        "items": []
-      },
-      "languages": {
-        "name": "Languages",
-        "columns": 3,
-        "separateLinks": true,
-        "visible": true,
-        "id": "languages",
-        "items": [
-          {
-            "id": "or3ci1jbhe7nzm32cvcokibh",
-            "visible": true,
-            "name": "English",
-            "description": "Fluent",
-            "level": 0
+          "company": "BYJU'S",
+          "position": "Software Engineer",
+          "location": "",
+          "period": "Apr 2022 – Jul 2023",
+          "website": {
+            "url": "https://byjus.com",
+            "label": "Byju's"
           },
-          {
-            "id": "p6u4r2c5pwvfz99x927zlsi4",
-            "visible": true,
-            "name": "Hindi",
-            "description": "Fluent",
-            "level": 0
-          }
-        ]
-      },
-      "profiles": {
-        "name": "Profiles",
-        "columns": 3,
-        "separateLinks": true,
-        "visible": true,
-        "id": "profiles",
-        "items": [
-          {
-            "id": "m85ekips1prjpn08lcobe7kw",
-            "visible": true,
-            "network": "Linkedin",
-            "username": "linkedin/in/imarinzone",
-            "icon": "linkedin",
-            "url": {
-              "label": "",
-              "href": "https://www.linkedin.com/in/imarinzone/"
-            }
+          "description": "<ul><li><p>Built a centralized tuition database using <strong>Golang</strong> and <strong>PostgreSQL</strong>, enabling efficient school data management and admin UI integration.</p></li><li><p>Developed <strong>Kafka-based</strong> applications for streamline microservices communication, serving 10k users/sec during Annual Talent Hunt Exams.</p></li></ul>"
+        },
+        {
+          "id": "vffx35swrdowj68hvk5zk8z7",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": true
           },
-          {
-            "id": "eq3ffh2cfx7zsqj0b3tx78r7",
-            "visible": true,
-            "network": "github",
-            "username": "github.com/imarinzone",
-            "icon": "github",
-            "url": {
-              "label": "",
-              "href": "https://github.com/imarinzone"
-            }
-          }
-        ]
-      },
-      "projects": {
-        "name": "Projects",
-        "columns": 1,
-        "separateLinks": true,
-        "visible": false,
-        "id": "projects",
-        "items": [
-          {
-            "id": "tc9yykz748urmuf3f15rx832",
-            "visible": true,
-            "name": "Live Web Chat",
-            "description": "Technologies: Golang, Google Firebase, Heroku",
-            "date": "",
-            "summary": "<p>Developed a live chat application using Golang and Google Firebase, enabling real-time communication for users.</p>",
-            "keywords": [],
-            "url": {
-              "label": "",
-              "href": ""
-            }
+          "company": "Deltek (formally - Replicon)",
+          "position": "Software Engineer",
+          "location": "",
+          "period": "Aug 2019 – Mar 2022",
+          "website": {
+            "url": "https://replicon.com",
+            "label": "Replicon"
           },
-          {
-            "id": "htwtcn39wo3nu6k7224skhfm",
-            "visible": true,
-            "name": "Expense Tracking",
-            "description": "Technologies: Python, Jupyter Notebook",
-            "date": "",
-            "summary": "<p>Created a Python-based expense tracking tool with Jupyter Notebook, providing visual insights into personal finance management.</p>",
-            "keywords": [],
-            "url": {
-              "label": "",
-              "href": ""
-            }
-          }
-        ]
-      },
-      "publications": {
-        "name": "Publications",
-        "columns": 1,
-        "separateLinks": true,
-        "visible": true,
-        "id": "publications",
-        "items": []
-      },
-      "references": {
-        "name": "References",
-        "columns": 1,
-        "separateLinks": true,
-        "visible": true,
-        "id": "references",
-        "items": []
-      },
-      "skills": {
-        "name": "Skills",
-        "columns": 3,
-        "separateLinks": true,
-        "visible": true,
-        "id": "skills",
-        "items": [
-          {
-            "id": "j1n3oc1upap0fe10j0qupvuv",
-            "visible": true,
-            "name": "Golang",
-            "description": "",
-            "level": 0,
-            "keywords": []
-          },
-          {
-            "id": "u95jz92ma37gv6weyo5asxvu",
-            "visible": true,
-            "name": "Docker",
-            "description": "",
-            "level": 0,
-            "keywords": []
-          },
-          {
-            "id": "cwn4urt5x1gbyi8nrev99ajh",
-            "visible": true,
-            "name": "Python",
-            "description": "",
-            "level": 0,
-            "keywords": []
-          },
-          {
-            "id": "w4681z5e66doxy76zlmyjopf",
-            "visible": true,
-            "name": "PostgreSQL/MySQL",
-            "description": "",
-            "level": 0,
-            "keywords": []
-          },
-          {
-            "id": "esvvyeadiynjnmlsqh8hkflj",
-            "visible": true,
-            "name": "AWS / Azure",
-            "description": "",
-            "level": 0,
-            "keywords": []
-          },
-          {
-            "id": "vhvinxxcktxb5xjxie5riqnt",
-            "visible": true,
-            "name": "Git",
-            "description": "",
-            "level": 0,
-            "keywords": []
-          },
-          {
-            "id": "bbp1q8q1dpdbqqlivm4sbkxm",
-            "visible": true,
-            "name": "Kubernetes",
-            "description": "",
-            "level": 0,
-            "keywords": []
-          },
-          {
-            "id": "wqsn9w2bx1w5dlfwj8sg6nlq",
-            "visible": true,
-            "name": "REST APIs / GraphQL / gRPC",
-            "description": "",
-            "level": 0,
-            "keywords": []
-          },
-          {
-            "id": "jjm5k3bfsqrozgek26eldqq4",
-            "visible": true,
-            "name": "Terraform",
-            "description": "",
-            "level": 0,
-            "keywords": []
-          }
-        ]
-      },
-      "custom": {}
+          "description": "<ul><li><p>Engineered REST APIs in <strong>Golang</strong>, optimizing team-specific frameworks and improving deliverable efficiency.</p></li><li><p>Integrated <strong>feature flags</strong> into the scripting engine, reducing release risks and accelerating the deployment process.</p></li></ul>"
+        }
+      ]
     },
-    "metadata": {
-      "template": "bronzor",
-      "layout": [
-        [
-          [
+    "education": {
+      "title": "Education",
+      "columns": 3,
+      "hidden": false,
+      "items": [
+        {
+          "id": "gu7yjw3v3w41h3bbawpl2q5t",
+          "hidden": false,
+          "school": "VTU",
+          "degree": "B.E.",
+          "area": "Computer Science",
+          "grade": "7.0 CGPA",
+          "location": "",
+          "period": "2015 – 2019",
+          "website": {
+            "url": "",
+            "label": ""
+          },
+          "description": "<p>Vemana IT <br>• Bengaluru, Karnataka </p>"
+        },
+        {
+          "id": "u891n483t3ua1fhs7wov4fe3",
+          "hidden": false,
+          "school": "CBSE",
+          "degree": "XII",
+          "area": "Computer Science",
+          "grade": "82.4%",
+          "location": "",
+          "period": "2015",
+          "website": {
+            "url": "",
+            "label": ""
+          },
+          "description": "<p>K.V. Hebbal <br>• Bengaluru, Karnataka</p>"
+        },
+        {
+          "id": "kp2yvtfh0jcoezblgifjeorw",
+          "hidden": false,
+          "school": "CBSE",
+          "degree": "X",
+          "area": "",
+          "grade": "9.2 CGPA",
+          "location": "",
+          "period": "2013",
+          "website": {
+            "url": "",
+            "label": ""
+          },
+          "description": "<p>K.V. A.F. Station <br>• Barrackpore, West Bengal</p>"
+        }
+      ]
+    },
+    "projects": {
+      "title": "Projects",
+      "columns": 1,
+      "hidden": false,
+      "items": [
+        {
+          "id": "019c1899-b23d-76f3-9a66-d1bc8ec81181",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": true
+          },
+          "name": "MyTravelRecap",
+          "period": "",
+          "website": {
+            "url": "https://mytravelrecap.com",
+            "label": ""
+          },
+          "description": "<p>Built a privacy-centric web tool that converts Google Timeline data into rich infographics and social media cards using device-only processing. Leveraged <strong>Google AI Studio</strong> and <strong>Cursor</strong> to streamline development and implement UI and data parsing logic securely in the browser.</p><p></p>"
+        },
+        {
+          "id": "htwtcn39wo3nu6k7224skhfm",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "name": "Expense Tracking",
+          "period": "",
+          "website": {
+            "url": "",
+            "label": ""
+          },
+          "description": "<p>Created a Python-based expense tracking tool with Jupyter Notebook, providing visual insights into personal finance management.</p>"
+        }
+      ]
+    },
+    "skills": {
+      "title": "Skills",
+      "columns": 3,
+      "hidden": false,
+      "items": [
+        {
+          "id": "j1n3oc1upap0fe10j0qupvuv",
+          "hidden": false,
+          "icon": "",
+          "name": "Golang",
+          "proficiency": "",
+          "level": 0,
+          "keywords": []
+        },
+        {
+          "id": "cwn4urt5x1gbyi8nrev99ajh",
+          "hidden": false,
+          "icon": "",
+          "name": "Python",
+          "proficiency": "",
+          "level": 0,
+          "keywords": []
+        },
+        {
+          "id": "u95jz92ma37gv6weyo5asxvu",
+          "hidden": false,
+          "icon": "",
+          "name": "Docker",
+          "proficiency": "",
+          "level": 0,
+          "keywords": []
+        },
+        {
+          "id": "w4681z5e66doxy76zlmyjopf",
+          "hidden": false,
+          "icon": "",
+          "name": "PostgreSQL/MySQL",
+          "proficiency": "",
+          "level": 0,
+          "keywords": []
+        },
+        {
+          "id": "esvvyeadiynjnmlsqh8hkflj",
+          "hidden": false,
+          "icon": "",
+          "name": "AWS / Azure",
+          "proficiency": "",
+          "level": 0,
+          "keywords": []
+        },
+        {
+          "id": "vhvinxxcktxb5xjxie5riqnt",
+          "hidden": false,
+          "icon": "",
+          "name": "Git",
+          "proficiency": "",
+          "level": 0,
+          "keywords": []
+        },
+        {
+          "id": "bbp1q8q1dpdbqqlivm4sbkxm",
+          "hidden": false,
+          "icon": "",
+          "name": "Kubernetes",
+          "proficiency": "",
+          "level": 0,
+          "keywords": []
+        },
+        {
+          "id": "n9giweacklntsthozuphwevo",
+          "hidden": false,
+          "icon": "",
+          "name": "Kafka",
+          "proficiency": "",
+          "level": 0,
+          "keywords": []
+        },
+        {
+          "id": "wqsn9w2bx1w5dlfwj8sg6nlq",
+          "hidden": false,
+          "icon": "",
+          "name": "REST APIs / GraphQL / gRPC",
+          "proficiency": "",
+          "level": 0,
+          "keywords": []
+        }
+      ]
+    },
+    "languages": {
+      "title": "Languages",
+      "columns": 3,
+      "hidden": false,
+      "items": [
+        {
+          "id": "or3ci1jbhe7nzm32cvcokibh",
+          "hidden": false,
+          "language": "English",
+          "fluency": "Fluent",
+          "level": 0
+        },
+        {
+          "id": "p6u4r2c5pwvfz99x927zlsi4",
+          "hidden": false,
+          "language": "Hindi",
+          "fluency": "Fluent",
+          "level": 0
+        }
+      ]
+    },
+    "interests": {
+      "title": "Interests",
+      "columns": 1,
+      "hidden": false,
+      "items": []
+    },
+    "awards": {
+      "title": "Awards",
+      "columns": 1,
+      "hidden": false,
+      "items": []
+    },
+    "certifications": {
+      "title": "Certifications",
+      "columns": 1,
+      "hidden": false,
+      "items": []
+    },
+    "publications": {
+      "title": "Publications",
+      "columns": 1,
+      "hidden": false,
+      "items": []
+    },
+    "volunteer": {
+      "title": "Volunteering",
+      "columns": 1,
+      "hidden": false,
+      "items": []
+    },
+    "references": {
+      "title": "References",
+      "columns": 1,
+      "hidden": false,
+      "items": []
+    }
+  },
+  "customSections": [],
+  "metadata": {
+    "template": "bronzor",
+    "layout": {
+      "sidebarWidth": 35,
+      "pages": [
+        {
+          "fullWidth": false,
+          "main": [
             "summary",
             "experience",
             "volunteer",
@@ -375,7 +379,7 @@
             "interests",
             "references"
           ],
-          [
+          "sidebar": [
             "education",
             "skills",
             "certifications",
@@ -384,38 +388,51 @@
             "publications",
             "awards"
           ]
-        ]
-      ],
-      "css": {
-        "value": "* {\n\toutline: 1px solid #000;\n\toutline-offset: 4px;\n}",
-        "visible": false
-      },
-      "page": {
-        "margin": 12,
-        "format": "a4",
-        "options": {
-          "breakLine": false,
-          "pageNumbers": true
         }
+      ]
+    },
+    "css": {
+      "enabled": false,
+      "value": "* {\n\toutline: 1px solid #000;\n\toutline-offset: 4px;\n}"
+    },
+    "page": {
+      "gapX": 4,
+      "gapY": 6,
+      "marginX": 12,
+      "marginY": 12,
+      "format": "free-form",
+      "locale": "en-US",
+      "hideIcons": false
+    },
+    "design": {
+      "level": {
+        "icon": "star",
+        "type": "circle"
       },
-      "theme": {
-        "background": "#ffffff",
-        "text": "#000000",
-        "primary": "#e69d00"
+      "colors": {
+        "primary": "rgba(230, 157, 0, 1)",
+        "text": "rgba(0, 0, 0, 1)",
+        "background": "rgba(255, 255, 255, 1)"
+      }
+    },
+    "typography": {
+      "body": {
+        "fontFamily": "Lato",
+        "fontWeights": [
+          "400"
+        ],
+        "fontSize": 10.6875,
+        "lineHeight": 1.5
       },
-      "typography": {
-        "font": {
-          "family": "Lato",
-          "subset": "latin",
-          "variants": [
-            "regular"
-          ],
-          "size": 14.25
-        },
-        "lineHeight": 1.5,
-        "hideIcons": false,
-        "underlineLinks": true
-      },
-      "notes": ""
-    }
+      "heading": {
+        "fontFamily": "Lato",
+        "fontWeights": [
+          "600"
+        ],
+        "fontSize": 13.6875,
+        "lineHeight": 1.5
+      }
+    },
+    "notes": ""
   }
+}

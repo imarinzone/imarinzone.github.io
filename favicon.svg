@@ -1,0 +1,7 @@
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <title>Delta Star A</title>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M32,2 L60,58 C60,58 45,50 32,50 C19,50 4,58 4,58 L32,2 Z" fill="currentColor"></path>
+        <path d="M32,18 L40,40 L32,36 L24,40 L32,18 Z" fill="#FFFFFF"></path>
+    </g>
+    </svg>
