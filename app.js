@@ -52,6 +52,13 @@ async function loadResumeData() {
     
     // Initialize the page after data is loaded
     initializePage();
+    
+    // Re-initialize animations after page content is loaded
+    setTimeout(() => {
+      if (window.scrollObserver) {
+        initScrollAnimations();
+      }
+    }, 200);
   } catch (error) {
     console.error('Error loading resume data:', error);
     // Show error message to user
@@ -243,7 +250,7 @@ function renderChips() {
 function renderTopicCards() {
   const filtered = activeFilter === 'all' ? topics : topics.filter(t => t.id === activeFilter);
   topicGrid.innerHTML = filtered.map(t => `
-    <article class="card tilt" data-tilt data-id="${t.id}">
+    <article class="card tilt animate-on-scroll" data-tilt data-id="${t.id}">
       <div class="card-title">${t.title}</div>
       <div class="card-meta">${t.meta}</div>
       <div class="card-body">${t.body}</div>
@@ -265,6 +272,13 @@ function renderTopicCards() {
   });
 
   enableTilt($$('.tilt', topicGrid));
+  
+  // Re-initialize scroll animations for new cards
+  if (window.scrollObserver) {
+    $$('.card', topicGrid).forEach(card => {
+      window.scrollObserver.observe(card);
+    });
+  }
 }
 
 chipRow.addEventListener('click', (e) => {
@@ -298,7 +312,7 @@ renderTopicCards();
   const expList = document.getElementById('experienceList');
   (resume.sections?.experience?.items || []).forEach(item => {
     const el = document.createElement('article');
-    el.className = 'timeline-item';
+    el.className = 'timeline-item animate-on-scroll';
     
     // Create company name with link if website exists
     const companyName = item.website?.url 
@@ -322,7 +336,7 @@ renderTopicCards();
   const projectCards = [];
   (resume.sections?.projects?.items || []).filter(p => p.hidden !== true).forEach(p => {
     const el = document.createElement('article');
-    el.className = 'card tilt';
+    el.className = 'card tilt animate-on-scroll';
     el.innerHTML = `
       <div class="card-title">${p.name}</div>
       <div class="card-meta"></div>
@@ -341,7 +355,7 @@ renderTopicCards();
   const eduList = document.getElementById('educationList');
   (resume.sections?.education?.items || []).forEach(ed => {
     const el = document.createElement('article');
-    el.className = 'edu-item';
+    el.className = 'edu-item animate-on-scroll';
     el.innerHTML = `
       <div class="timeline-title">${ed.studyType} • ${ed.institution}</div>
       <div class="timeline-meta">${ed.area || ''} ${ed.score ? '• ' + ed.score : ''} • ${ed.date || ''}</div>
@@ -354,7 +368,7 @@ renderTopicCards();
   const skillsCloud = document.getElementById('skillsCloud');
   (resume.sections?.skills?.items || []).forEach(s => {
     const el = document.createElement('span');
-    el.className = 'skill';
+    el.className = 'skill animate-on-scroll';
     el.textContent = s.name;
     skillsCloud.appendChild(el);
   });
@@ -364,10 +378,10 @@ renderTopicCards();
   if (languagesList) {
     const languages = resume.sections?.languages?.items || [];
     if (languages.length > 0) {
-      languagesList.innerHTML = languages.map(lang => {
+      languagesList.innerHTML = languages.map((lang, index) => {
         const fluency = lang.fluency || '';
         return `
-          <div class="language-item">
+          <div class="language-item animate-on-scroll" style="transition-delay: ${index * 0.1}s">
             <span class="language-name">${lang.language}</span>
             ${fluency ? `<span class="language-fluency">${fluency}</span>` : ''}
           </div>
@@ -423,13 +437,209 @@ if (document.readyState === 'loading') {
   loadProfileArt();
 }
 
+/* Scroll Animations with Intersection Observer */
+function initScrollAnimations() {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Store observer globally for re-use
+  window.scrollObserver = observer;
+
+  // Observe all cards
+  document.querySelectorAll('.card.animate-on-scroll').forEach((card, index) => {
+    card.style.transitionDelay = `${index * 0.1}s`;
+    observer.observe(card);
+  });
+
+  // Observe timeline items
+  document.querySelectorAll('.timeline-item.animate-on-scroll').forEach((item, index) => {
+    item.style.transitionDelay = `${index * 0.1}s`;
+    observer.observe(item);
+  });
+
+  // Observe education items
+  document.querySelectorAll('.edu-item.animate-on-scroll').forEach((item, index) => {
+    item.style.transitionDelay = `${index * 0.1}s`;
+    observer.observe(item);
+  });
+
+  // Observe skills
+  document.querySelectorAll('.skill.animate-on-scroll').forEach((skill, index) => {
+    skill.style.transitionDelay = `${index * 0.05}s`;
+    observer.observe(skill);
+  });
+
+  // Observe language items
+  document.querySelectorAll('.language-item.animate-on-scroll').forEach((item, index) => {
+    observer.observe(item);
+  });
+
+  // Observe sections
+  document.querySelectorAll('.section').forEach(section => {
+    observer.observe(section);
+  });
+}
+
+/* Parallax Effect */
+function initParallax() {
+  const hero = document.querySelector('.hero');
+  const orbs = document.querySelectorAll('.orb');
+  
+  if (!hero) return;
+
+  let ticking = false;
+
+  function updateParallax() {
+    const scrolled = window.pageYOffset;
+    const rate = scrolled * 0.5;
+
+    // Only apply parallax to orbs, not profile art
+    orbs.forEach((orb, index) => {
+      const speed = (index + 1) * 0.2;
+      orb.style.transform = `translateY(${rate * speed}px)`;
+    });
+
+    ticking = false;
+  }
+
+  function requestTick() {
+    if (!ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', requestTick);
+}
+
+/* Smooth Scroll for Navigation Links */
+function initSmoothScroll() {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      if (href === '#' || href === '#top') return;
+      
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        const headerOffset = 80;
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+}
+
+/* Enhanced Micro-interactions */
+function initMicroInteractions() {
+  // Button ripple effect
+  document.querySelectorAll('.btn, .chip, .icon-btn').forEach(button => {
+    button.addEventListener('click', function(e) {
+      const ripple = document.createElement('span');
+      const rect = this.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      const x = e.clientX - rect.left - size / 2;
+      const y = e.clientY - rect.top - size / 2;
+      
+      ripple.style.width = ripple.style.height = size + 'px';
+      ripple.style.left = x + 'px';
+      ripple.style.top = y + 'px';
+      ripple.classList.add('ripple');
+      
+      this.appendChild(ripple);
+      
+      setTimeout(() => {
+        ripple.remove();
+      }, 600);
+    });
+  });
+
+  // Card hover glow effect
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('mousemove', function(e) {
+      const rect = this.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      const angleX = (y - centerY) / 10;
+      const angleY = (centerX - x) / 10;
+      
+      this.style.setProperty('--mouse-x', `${x}px`);
+      this.style.setProperty('--mouse-y', `${y}px`);
+    });
+  });
+}
+
+/* Add ripple effect styles dynamically */
+function addRippleStyles() {
+  const style = document.createElement('style');
+  style.textContent = `
+    .btn, .chip, .icon-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    .ripple {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(0);
+      animation: ripple-animation 0.6s ease-out;
+      pointer-events: none;
+    }
+    @keyframes ripple-animation {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+}
+
 // Load resume data when DOM is ready
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
     applySectionVisibility();
     loadResumeData();
+    addRippleStyles();
+    initSmoothScroll();
+    initMicroInteractions();
+    
+    // Initialize animations after data loads
+    setTimeout(() => {
+      initScrollAnimations();
+      initParallax();
+    }, 300);
   });
 } else {
   applySectionVisibility();
   loadResumeData();
+  addRippleStyles();
+  initSmoothScroll();
+  initMicroInteractions();
+  
+  // Initialize animations after data loads
+  setTimeout(() => {
+    initScrollAnimations();
+    initParallax();
+  }, 300);
 }
