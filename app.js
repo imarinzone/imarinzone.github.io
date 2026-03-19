@@ -71,21 +71,15 @@ const body = document.body;
 const themeToggle = document.getElementById('themeToggle');
 const themeColorMeta = document.querySelector('meta[name="theme-color"]');
 const savedTheme = localStorage.getItem(CONFIG.storage.theme);
-const savedPalette = localStorage.getItem(CONFIG.storage.palette) || CONFIG.theme.defaultPalette;
 
-// Apply saved theme and palette
+// Apply saved theme
 if (savedTheme) {
   const themeClasses = savedTheme.split(' ').filter(c => c);
   themeClasses.forEach(cls => {
-    if (cls.startsWith('theme-') || cls.startsWith('palette-')) {
+    if (cls.startsWith('theme-')) {
       body.classList.add(cls);
     }
   });
-}
-
-// If no palette in saved theme, apply saved palette
-if (savedPalette && savedPalette !== 'default' && !body.classList.contains(`palette-${savedPalette}`)) {
-  body.classList.add(`palette-${savedPalette}`);
 }
 
 function updateThemeIcon() { 
@@ -103,7 +97,7 @@ function updateThemeColor() {
 }
 
 function saveTheme() {
-  const classes = Array.from(body.classList).filter(c => c.startsWith('theme-') || c.startsWith('palette-')).join(' ');
+  const classes = Array.from(body.classList).filter(c => c.startsWith('theme-')).join(' ');
   localStorage.setItem(CONFIG.storage.theme, classes);
 }
 
@@ -122,58 +116,6 @@ themeToggle.addEventListener('click', () => {
   updateThemeIcon();
   updateThemeColor();
 });
-
-/* Color Palette */
-const paletteToggle = document.getElementById('paletteToggle');
-const paletteMenu = document.getElementById('paletteMenu');
-const paletteWrapper = document.querySelector('.color-palette-wrapper');
-const paletteOptions = document.querySelectorAll('.palette-option');
-
-// Toggle palette menu
-paletteToggle.addEventListener('click', (e) => {
-  e.stopPropagation();
-  paletteWrapper.classList.toggle('active');
-});
-
-// Close menu when clicking outside
-document.addEventListener('click', (e) => {
-  if (!paletteWrapper.contains(e.target)) {
-    paletteWrapper.classList.remove('active');
-  }
-});
-
-// Handle palette selection
-paletteOptions.forEach(option => {
-  option.addEventListener('click', () => {
-    const palette = option.getAttribute('data-palette');
-    
-    // Remove all palette classes
-    CONFIG.theme.palettes.forEach(p => body.classList.remove(`palette-${p}`));
-    
-    // Add selected palette class (if not default)
-    if (palette !== CONFIG.theme.defaultPalette) {
-      body.classList.add(`palette-${palette}`);
-    }
-    
-    // Update active state
-    paletteOptions.forEach(opt => opt.classList.remove('active'));
-    option.classList.add('active');
-    
-    // Save preference
-    localStorage.setItem(CONFIG.storage.palette, palette);
-    saveTheme();
-    
-    // Close menu
-    paletteWrapper.classList.remove('active');
-  });
-});
-
-// Set active palette on load
-const activePaletteOption = document.querySelector(`[data-palette="${savedPalette}"]`);
-if (activePaletteOption) {
-  paletteOptions.forEach(opt => opt.classList.remove('active'));
-  activePaletteOption.classList.add('active');
-}
 
 /* Initialize page with resume data */
 function initializePage() {
