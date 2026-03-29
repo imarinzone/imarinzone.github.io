@@ -4,13 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#d4c5a0" />
-  <title>Arindam Kumar Nath — Newspaper View</title>
-  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-  <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+  <title>Newspaper Theme</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./newspaper.css" />
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
   <div class="paper">
@@ -19,15 +19,12 @@
       <div class="np-header-inner">
         <div class="np-brand">
           <span class="np-brand-dot"></span>
-          <span class="np-brand-name" data-name>Arindam Kumar Nath</span>
+          <span class="np-brand-name" data-name></span>
         </div>
         <nav class="np-nav">
           <a href="#np-experience">Experience</a>
           <a href="#np-projects">Projects</a>
           <a href="#np-skills">Skills</a>
-          <a href="./index.html" class="np-switch-btn">Default</a>
-          <a href="./graphic.html" class="np-switch-btn">Graphic</a>
-          <a href="./vscode.html" class="np-switch-btn">VS Code</a>
           <a class="np-email-btn" id="emailLink" target="_blank" rel="noopener">Email</a>
         </nav>
       </div>
@@ -39,8 +36,8 @@
       <div class="np-col-left">
         <!-- Hero -->
         <section class="np-hero">
-          <h1 class="np-name" data-name>ARINDAM KUMAR NATH</h1>
-          <p class="np-subtitle" data-headline>Software Developer — Backend & Cloud</p>
+          <h1 class="np-name" data-name></h1>
+          <p class="np-subtitle" data-headline></p>
         </section>
 
         <!-- Profile + Summary -->
@@ -57,11 +54,10 @@
           </div>
         </section>
 
-        <!-- Areas of Expertise -->
+        <!-- Profiles -->
         <section class="np-section">
-          <h2 class="np-section-title">Areas of Expertise</h2>
-          <div class="np-chips" id="topicChips"></div>
-          <div class="np-expertise-grid" id="topicGrid"></div>
+          <h2 class="np-section-title" id="profilesTitle"></h2>
+          <div class="np-expertise-grid" id="profilesGrid"></div>
         </section>
       </div>
 
@@ -97,8 +93,8 @@
     <footer class="np-footer">
       <div class="np-footer-inner">
         <div class="np-footer-left">
-          <strong>Open to backend and platform roles</strong>
-          <span id="footerLocation">Remote friendly</span>
+          <strong id="footerHeadline"></strong>
+          <span id="footerLocation"></span>
         </div>
         <div class="np-footer-links">
           <a id="footerGithub" target="_blank" rel="noopener">GitHub</a>
@@ -109,7 +105,8 @@
     </footer>
   </div>
 
-  <script src="./config.js"></script>
-  <script src="./newspaper-app.js"></script>
+  <script src="../../config.js"></script>
+  <script src="../../src/rxresume.js"></script>
+  <script src="./app.js"></script>
 </body>
 </html>

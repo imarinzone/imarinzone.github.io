@@ -1,6 +1,3 @@
-/* VS Code Theme — Data loading & rendering as code files
-   Loads the same resume JSON + config as the main site */
-
 let resume = null;
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
@@ -22,42 +19,15 @@ function line(num, code) {
   return `<div class="vsc-line"><span class="vsc-line-num">${num}</span><span class="vsc-line-code">${code}</span></div>`;
 }
 
-/* Load data */
 async function loadResumeData() {
   try {
-    const response = await fetch(CONFIG.paths.resumeData);
-    if (!response.ok) throw new Error(`Failed: ${response.status}`);
-    const data = await response.json();
-
-    resume = {
-      basics: data.basics,
-      sections: {
-        summary: data.summary ? { content: data.summary.content } : null,
-        profiles: data.sections?.profiles || { items: [] },
-        experience: data.sections?.experience ? {
-          items: (data.sections.experience.items || []).map(item => ({
-            ...item, date: item.period || '', summary: item.description || '', website: item.website || null
-          }))
-        } : { items: [] },
-        projects: data.sections?.projects ? {
-          items: (data.sections.projects.items || []).map(item => ({
-            ...item, url: item.website ? { href: item.website.url || '' } : { href: '' }, summary: item.description || ''
-          }))
-        } : { items: [] },
-        education: data.sections?.education ? {
-          items: (data.sections.education.items || []).map(item => ({
-            ...item, institution: item.school || '', studyType: item.degree || '', score: item.grade || '', date: item.period || '', summary: item.description || ''
-          }))
-        } : { items: [] },
-        skills: data.sections?.skills || { items: [] },
-        languages: data.sections?.languages || { items: [] }
-      }
-    };
+    resume = await window.RxResumeData.loadResume(CONFIG.paths.resumeData);
 
     renderAllPanels();
+    loadProfileArt();
   } catch (error) {
     console.error('Error loading resume data:', error);
-    $('#panel-about_me').innerHTML = '<div style="padding:2rem;color:#f38ba8;">Error loading resume data. Check resume/resume-data.json.</div>';
+    $('#panel-about_me').innerHTML = '<div style="padding:2rem;color:#f38ba8;">Error loading resume data. Check resume/Reactive Resume.json.</div>';
     $('#panel-about_me').classList.add('active');
   }
 }
@@ -74,7 +44,8 @@ function renderAllPanels() {
 
 function renderAboutMe() {
   const b = resume.basics;
-  const summary = stripHtml(resume.sections?.summary?.content || '').trim();
+  const pictureUrl = window.RxResumeData.getPictureUrl(resume);
+  const summary = stripHtml(resume.summary?.content || '').trim();
   const summaryLines = wrapText(summary, 60);
 
   let n = 1;
@@ -92,8 +63,8 @@ function renderAboutMe() {
   html += line(n++, `<span class="syn-kw">func</span> <span class="syn-func">main</span>() {`);
   html += line(n++, `    arin := <span class="syn-type">Developer</span>{`);
   html += line(n++, `        Name:     <span class="syn-str">"${esc(b.name)}"</span>,`);
-  html += line(n++, `        Role:     <span class="syn-str">"${esc(b.headline)}${esc(CONFIG.display.headlineSuffix)}"</span>,`);
-  html += line(n++, `        PhotoURL: <span class="syn-str">"images/arindam_profile.png"</span>,`);
+  html += line(n++, `        Role:     <span class="syn-str">"${esc(b.headline || '')}"</span>,`);
+  html += line(n++, `        PhotoURL: <span class="syn-str">"${esc(pictureUrl || '')}"</span>,`);
   html += line(n++, `    }`);
   html += line(n++, `    fmt.<span class="syn-func">Println</span>(arin)`);
   html += line(n++, `}`);
@@ -123,7 +94,7 @@ function renderAboutMe() {
 }
 
 function renderExperience() {
-  const items = resume.sections?.experience?.items || [];
+  const items = window.RxResumeData.getItems(resume, 'experience');
   let n = 1;
   let html = '';
 
@@ -133,12 +104,13 @@ function renderExperience() {
   items.forEach((item, idx) => {
     html += line(n++, `<span class="syn-tag">- position</span>: <span class="syn-str">"${esc(item.position)}"</span>`);
     html += line(n++, `  <span class="syn-tag">company</span>: <span class="syn-str">"${esc(item.company)}"</span>`);
-    html += line(n++, `  <span class="syn-tag">period</span>: <span class="syn-str">"${esc(item.date)}"</span>`);
-    if (item.website?.url) {
-      html += line(n++, `  <span class="syn-tag">website</span>: <span class="syn-link">${esc(item.website.url)}</span>`);
+    html += line(n++, `  <span class="syn-tag">period</span>: <span class="syn-str">"${esc(item.period || '')}"</span>`);
+    const link = window.RxResumeData.getLink(item.website);
+    if (link) {
+      html += line(n++, `  <span class="syn-tag">website</span>: <span class="syn-link">${esc(link)}</span>`);
     }
     // Parse description bullets
-    const desc = stripHtml(item.summary || '').trim();
+    const desc = stripHtml(item.description || '').trim();
     if (desc) {
       html += line(n++, `  <span class="syn-tag">description</span>: |`);
       const descLines = wrapText(desc, 70);
@@ -153,7 +125,7 @@ function renderExperience() {
 }
 
 function renderProjects() {
-  const items = (resume.sections?.projects?.items || []).filter(p => p.hidden !== true);
+  const items = window.RxResumeData.getItems(resume, 'projects');
   let n = 1;
   let html = '';
 
@@ -163,11 +135,12 @@ function renderProjects() {
   items.forEach((p, idx) => {
     html += line(n++, `    {`);
     html += line(n++, `      <span class="syn-key">"name"</span>: <span class="syn-str">"${esc(p.name)}"</span>,`);
-    const desc = stripHtml(p.summary || p.description || '').trim();
+    const desc = stripHtml(p.description || '').trim();
     const descEsc = esc(desc.length > 120 ? desc.slice(0, 120) + '...' : desc);
     html += line(n++, `      <span class="syn-key">"description"</span>: <span class="syn-str">"${descEsc}"</span>,`);
-    if (p.url?.href) {
-      html += line(n++, `      <span class="syn-key">"url"</span>: <span class="syn-str">"${esc(p.url.href)}"</span>,`);
+    const link = window.RxResumeData.getLink(p.website);
+    if (link) {
+      html += line(n++, `      <span class="syn-key">"url"</span>: <span class="syn-str">"${esc(link)}"</span>,`);
     }
     html += line(n++, `      <span class="syn-key">"hidden"</span>: <span class="syn-bool">false</span>`);
     html += line(n++, `    }${idx < items.length - 1 ? ',' : ''}`);
@@ -180,8 +153,8 @@ function renderProjects() {
 }
 
 function renderSkills() {
-  const skills = resume.sections?.skills?.items || [];
-  const languages = resume.sections?.languages?.items || [];
+  const skills = window.RxResumeData.getItems(resume, 'skills');
+  const languages = window.RxResumeData.getItems(resume, 'languages');
   let n = 1;
   let html = '';
 
@@ -201,18 +174,18 @@ function renderSkills() {
   });
 
   // Education
-  const education = resume.sections?.education?.items || [];
+  const education = window.RxResumeData.getItems(resume, 'education');
   if (education.length) {
     html += line(n++, '');
     html += line(n++, `<span class="syn-section">[education]</span>`);
     education.forEach(ed => {
       html += line(n++, '');
       html += line(n++, `<span class="syn-section">[[education.items]]</span>`);
-      html += line(n++, `<span class="syn-attr">degree</span> = <span class="syn-str">"${esc(ed.studyType)}"</span>`);
-      html += line(n++, `<span class="syn-attr">school</span> = <span class="syn-str">"${esc(ed.institution)}"</span>`);
+      html += line(n++, `<span class="syn-attr">degree</span> = <span class="syn-str">"${esc(ed.degree || '')}"</span>`);
+      html += line(n++, `<span class="syn-attr">school</span> = <span class="syn-str">"${esc(ed.school || '')}"</span>`);
       if (ed.area) html += line(n++, `<span class="syn-attr">area</span> = <span class="syn-str">"${esc(ed.area)}"</span>`);
-      if (ed.score) html += line(n++, `<span class="syn-attr">grade</span> = <span class="syn-str">"${esc(ed.score)}"</span>`);
-      html += line(n++, `<span class="syn-attr">period</span> = <span class="syn-str">"${esc(ed.date)}"</span>`);
+      if (ed.grade) html += line(n++, `<span class="syn-attr">grade</span> = <span class="syn-str">"${esc(ed.grade)}"</span>`);
+      html += line(n++, `<span class="syn-attr">period</span> = <span class="syn-str">"${esc(ed.period || '')}"</span>`);
     });
   }
 
@@ -221,7 +194,7 @@ function renderSkills() {
 
 function renderContact() {
   const b = resume.basics;
-  const profiles = resume.sections?.profiles?.items || [];
+  const profiles = window.RxResumeData.getItems(resume, 'profiles');
   const github = profiles.find(p => (p.network || '').toLowerCase().includes('github'));
   const linkedin = profiles.find(p => (p.network || '').toLowerCase().includes('linkedin'));
   let n = 1;
@@ -235,29 +208,30 @@ function renderContact() {
   if (b.location) {
     html += line(n++, `<span class="syn-bullet">-</span> <span class="syn-bold">Location:</span> ${esc(b.location)}`);
   }
-  if (b.website?.url) {
-    html += line(n++, `<span class="syn-bullet">-</span> <span class="syn-bold">Portfolio:</span> <span class="syn-link">${esc(b.website.url)}</span>`);
+  const websiteUrl = window.RxResumeData.getLink(b.website);
+  if (websiteUrl) {
+    html += line(n++, `<span class="syn-bullet">-</span> <span class="syn-bold">Portfolio:</span> <span class="syn-link">${esc(websiteUrl)}</span>`);
   }
   if (github) {
-    const url = github.website?.url || github.url?.href || '';
+    const url = window.RxResumeData.getLink(github.website);
     html += line(n++, `<span class="syn-bullet">-</span> <span class="syn-bold">GitHub:</span> <span class="syn-link">${esc(url)}</span>`);
   }
   if (linkedin) {
-    const url = linkedin.website?.url || linkedin.url?.href || '';
+    const url = window.RxResumeData.getLink(linkedin.website);
     html += line(n++, `<span class="syn-bullet">-</span> <span class="syn-bold">LinkedIn:</span> <span class="syn-link">${esc(url)}</span>`);
   }
   html += line(n++, '');
-  html += line(n++, `<span class="syn-heading">## Availability</span>`);
+  html += line(n++, `<span class="syn-heading">## Headline</span>`);
   html += line(n++, '');
-  html += line(n++, `Open to backend and platform roles.`);
-  html += line(n++, `${esc(b.location || '')} · Remote friendly`);
+  html += line(n++, `${esc(b.headline || '')}`);
+  html += line(n++, `${esc(b.location || '')}`);
   html += line(n++, '');
   html += line(n++, `---`);
   html += line(n++, '');
   html += line(n++, `<span class="syn-comment">*View this portfolio in other themes:*</span>`);
-  html += line(n++, `<span class="syn-bullet">-</span> [Default](./index.html)`);
-  html += line(n++, `<span class="syn-bullet">-</span> [Graphic](./graphic.html)`);
-  html += line(n++, `<span class="syn-bullet">-</span> [Newspaper](./newspaper.html)`);
+  html += line(n++, `<span class="syn-bullet">-</span> [Default](../modern/index.html)`);
+  html += line(n++, `<span class="syn-bullet">-</span> [Graphic](../graphic/index.html)`);
+  html += line(n++, `<span class="syn-bullet">-</span> [Newspaper](../newspaper/index.html)`);
 
   $('#panel-contact').innerHTML = html;
 
@@ -318,11 +292,70 @@ $$('.vsc-tree-item').forEach(item => {
 
 /* Load Profile Art */
 async function loadProfileArt() {
+  const profileArtVsc = $('#profileArtVsc');
+  if (!profileArtVsc || !resume) return;
+
+  const pictureMeta = window.RxResumeData.getPictureMetadata(resume);
+  
+  // Check if picture is hidden
+  if (pictureMeta.hidden) {
+    profileArtVsc.innerHTML = '';
+    return;
+  }
+
   try {
-    const response = await fetch(CONFIG.paths.profileArt);
-    const html = await response.text();
-    const el = $('#profileArtVsc');
-    if (el) el.innerHTML = html;
+    const pictureUrl = window.RxResumeData.getPictureUrl(resume);
+
+    if (pictureUrl) {
+      // Create container with aspect ratio
+      const container = document.createElement('div');
+      container.style.width = (pictureMeta.size || 200) + 'px';
+      container.style.aspectRatio = (pictureMeta.aspectRatio || 1);
+      container.style.overflow = 'hidden';
+      container.style.position = 'relative';
+      
+      // Apply border
+      if (pictureMeta.borderWidth) {
+        container.style.borderWidth = (pictureMeta.borderWidth * 4 / 3) + 'px';
+        container.style.borderColor = pictureMeta.borderColor || 'transparent';
+        container.style.borderStyle = 'solid';
+      }
+      
+      // Apply border radius
+      if (pictureMeta.borderRadius !== undefined) {
+        container.style.borderRadius = (pictureMeta.borderRadius * 4 / 3) + 'px';
+      }
+      
+      // Apply shadow
+      if (pictureMeta.shadowWidth && pictureMeta.shadowWidth > 0) {
+        const shadowBlur = pictureMeta.shadowWidth * 4 / 3;
+        container.style.boxShadow = `0 4px ${shadowBlur}px ${pictureMeta.shadowColor || 'rgba(0,0,0,0.5)'}`;
+      }
+      
+      // Apply rotation
+      if (pictureMeta.rotation) {
+        container.style.transform = `rotate(${pictureMeta.rotation}deg)`;
+      }
+
+      // Create image element
+      const img = document.createElement('img');
+      img.src = pictureUrl;
+      img.alt = 'Profile picture';
+      img.style.width = '100%';
+      img.style.height = '100%';
+      img.style.objectFit = 'cover';
+      img.style.objectPosition = 'center';
+      img.style.display = 'block';
+
+      profileArtVsc.innerHTML = '';
+      container.appendChild(img);
+      profileArtVsc.appendChild(container);
+    } else {
+      // Fallback: try loading from static HTML file
+      const response = await fetch(CONFIG.paths.profileArt);
+      const html = await response.text();
+      profileArtVsc.innerHTML = html;
+    }
   } catch {
     const el = $('#profileArtVsc');
     if (el) el.innerHTML = CONFIG.fallbacks?.profileArt || '';

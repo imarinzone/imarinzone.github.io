@@ -1,7 +1,7 @@
 {
   "picture": {
     "hidden": false,
-    "url": "",
+    "url": "https://storage.rxresu.me/clp9fwawg5ioi9huno4odyqny/pictures/clpc1f3p81vnx14h56drwioxr.jpg",
     "size": 200,
     "rotation": 0,
     "aspectRatio": 1,
@@ -9,7 +9,7 @@
     "borderColor": "rgba(0, 0, 0, 0)",
     "borderWidth": 0,
     "shadowColor": "rgba(0, 0, 0, 0.5)",
-    "shadowWidth": 0
+    "shadowWidth": 0 
   },
   "basics": {
     "name": "Arindam Kumar Nath",
@@ -78,7 +78,8 @@
             "url": "https://coffeebeans.ai",
             "label": ""
           },
-          "description": "<p>Client: <a target=\"_blank\" rel=\"noopener nofollow\" href=\"https://npci.org.in\"><strong>NPCI</strong></a></p><ul><li><p>Working with BHIM app team to launch Unified Bharat ev-Charging using <strong>Golang</strong> and <strong>Beckn Protocol.</strong></p></li><li><p><strong>Developed</strong> a robust, high-security authentication microservice supporting multi-tenancy from ground up to streamline login flows for critical CPO and Ev Charging Network.</p></li></ul><p>Client: <strong>KPC</strong></p><ul><li><p>Implemented OAuth 2.0 and Role-Based Access Control (<strong>RBAC</strong>) authentication on <strong>Azure AD</strong> with Outsystems applications via <strong>Python</strong> , ensuring secure and seamless login for users.</p></li><li><p>Integrated Google vertex <strong>RAG</strong> agent for chat bot integration.</p></li></ul><p>Client: <a target=\"_blank\" rel=\"noopener nofollow\" href=\"https://gojek.com\"><strong>Gojek</strong></a></p><ul><li><p>Developed and enhanced logistics microservices using <strong>Golang</strong>, ensuring high performance, scalability, and seamless system integration.</p></li><li><p><strong>Cloud migration</strong> initiatives from GCP to Tencent Cloud using custom Python automation scripts, achieving minimal downtime and ensuring risk mitigation.</p></li></ul><p></p>"
+          "description": "<p>Client: <a target=\"_blank\" rel=\"noopener nofollow\" href=\"https://npci.org.in\"><strong>NPCI</strong></a></p><ul><li><p>Working with BHIM app team to launch Unified Bharat ev-Charging using <strong>Golang</strong> and <strong>Beckn Protocol.</strong></p></li><li><p><strong>Developed</strong> a robust, high-security authentication microservice supporting multi-tenancy from ground up to streamline login flows for critical CPO and Ev Charging Network.</p></li></ul><p>Client: <strong>KPC</strong></p><ul><li><p>Implemented OAuth 2.0 and Role-Based Access Control (<strong>RBAC</strong>) authentication on <strong>Azure AD</strong> with Outsystems applications via <strong>Python</strong> , ensuring secure and seamless login for users.</p></li><li><p>Integrated Google vertex <strong>RAG</strong> agent for chat bot integration.</p></li></ul><p>Client: <a target=\"_blank\" rel=\"noopener nofollow\" href=\"https://gojek.com\"><strong>Gojek</strong></a></p><ul><li><p>Developed and enhanced logistics microservices using <strong>Golang</strong>, ensuring high performance, scalability, and seamless system integration.</p></li><li><p><strong>Cloud migration</strong> initiatives from GCP to Tencent Cloud using custom Python automation scripts, achieving minimal downtime and ensuring risk mitigation.</p></li></ul><p></p>",
+          "roles": []
         },
         {
           "id": "lwchph7gktamgupthd7x0aec",
@@ -87,14 +88,15 @@
             "showLinkInTitle": true
           },
           "company": "UST Global",
-          "position": "Software Engineer",
+          "position": "Software Engineer - SRE",
           "location": "",
           "period": "Aug 2023 – Oct 2024",
           "website": {
             "url": "https://ust.com",
             "label": "Walmart"
           },
-          "description": "<p>Client: <a target=\"_blank\" rel=\"noopener nofollow\" href=\"https://tech.walmart.com\"><strong>Walmart Global Tech</strong></a></p><ul><li><p>Developed an internal testing framework using <strong>Kubernetes</strong> and <strong>Golang</strong>, preventing critical (p0) issues from reaching production and improving system reliability.</p></li><li><p>Implemented <strong>GRPC</strong> and <strong>GraphQL</strong> for Walmart’s prescription-based sales, reducing API calls and ensuring low-latency communication.</p></li></ul><p></p>"
+          "description": "<p>Client: <a target=\"_blank\" rel=\"noopener nofollow\" href=\"https://tech.walmart.com\"><strong>Walmart Global Tech</strong></a></p><ul><li><p>Developed an internal testing framework using <strong>Kubernetes</strong> and <strong>Golang</strong>, preventing critical (p0) issues from reaching production and improving system reliability.</p></li><li><p>Implemented <strong>GRPC</strong> and <strong>GraphQL</strong> for Walmart’s prescription-based sales, reducing API calls and ensuring low-latency communication.</p></li></ul><p></p>",
+          "roles": []
         },
         {
           "id": "rfyzqmnoob731l3hhhllif6q",
@@ -110,7 +112,8 @@
             "url": "https://byjus.com",
             "label": "Byju's"
           },
-          "description": "<ul><li><p>Built a centralized tuition database using <strong>Golang</strong> and <strong>PostgreSQL</strong>, enabling efficient school data management and admin UI integration.</p></li><li><p>Developed <strong>Kafka-based</strong> applications for streamline microservices communication, serving 10k users/sec during Annual Talent Hunt Exams.</p></li></ul>"
+          "description": "<ul><li><p>Built a centralized tuition database using <strong>Golang</strong> and <strong>PostgreSQL</strong>, enabling efficient school data management and admin UI integration.</p></li><li><p>Developed <strong>Kafka-based</strong> applications for streamline microservices communication, serving 10k users/sec during Annual Talent Hunt Exams.</p></li></ul>",
+          "roles": []
         },
         {
           "id": "vffx35swrdowj68hvk5zk8z7",
@@ -126,7 +129,8 @@
             "url": "https://replicon.com",
             "label": "Replicon"
           },
-          "description": "<ul><li><p>Engineered REST APIs in <strong>Golang</strong>, optimizing team-specific frameworks and improving deliverable efficiency.</p></li><li><p>Integrated <strong>feature flags</strong> into the scripting engine, reducing release risks and accelerating the deployment process.</p></li></ul>"
+          "description": "<ul><li><p>Engineered REST APIs in <strong>Golang</strong>, optimizing team-specific frameworks and improving deliverable efficiency.</p></li><li><p>Integrated <strong>feature flags</strong> into the scripting engine, reducing release risks and accelerating the deployment process.</p></li></ul>",
+          "roles": []
         }
       ]
     },
@@ -199,7 +203,7 @@
             "url": "https://mytravelrecap.com",
             "label": ""
           },
-          "description": "<p>Built a privacy-centric web tool that converts Google Timeline data into rich infographics and social media cards using device-only processing. Leveraged <strong>Google AI Studio</strong> and <strong>Cursor</strong> to streamline development and implement UI and data parsing logic securely in the browser.</p><p></p>"
+          "description": "<p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://github.com/imarinzone/mytravelrecap\">GitHub</a> <br>Built a privacy-centric web tool that converts Google Timeline data into rich infographics and social media cards using device-only processing. Leveraged <strong>Google AI Studio</strong> and <strong>Cursor</strong> to streamline development and implement UI and data parsing logic securely in the browser.</p><p></p>"
         },
         {
           "id": "htwtcn39wo3nu6k7224skhfm",
@@ -213,7 +217,21 @@
             "url": "",
             "label": ""
           },
-          "description": "<p>Created a Python-based expense tracking tool with Jupyter Notebook, providing visual insights into personal finance management.</p>"
+          "description": "<p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://github.com/imarinzone/expense-tracker\">Github</a><br>Created a Python-based expense tracking tool with Jupyter Notebook, providing visual insights into personal finance management.</p>"
+        },
+        {
+          "id": "019d0a65-f2e4-76b8-a67c-d22dd7396a95",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": true
+          },
+          "name": "TraceAnything",
+          "period": "",
+          "website": {
+            "url": "https://traceanything-294661137879.us-west1.run.app/",
+            "label": ""
+          },
+          "description": "<p><a target=\"_blank\" rel=\"noopener nofollow\" href=\"https://github.com/imarinzone/TraceAnything.git\">GitHub</a><br>An PWA which can help you to trace any image using your phone as a tracing paper.</p>"
         }
       ]
     },
@@ -226,73 +244,54 @@
           "id": "j1n3oc1upap0fe10j0qupvuv",
           "hidden": false,
           "icon": "",
-          "name": "Golang",
+          "name": "Programming Languges",
           "proficiency": "",
           "level": 0,
-          "keywords": []
-        },
-        {
-          "id": "cwn4urt5x1gbyi8nrev99ajh",
-          "hidden": false,
-          "icon": "",
-          "name": "Python",
-          "proficiency": "",
-          "level": 0,
-          "keywords": []
+          "keywords": [
+            "Golang",
+            "Python"
+          ]
         },
         {
           "id": "u95jz92ma37gv6weyo5asxvu",
           "hidden": false,
           "icon": "",
-          "name": "Docker",
+          "name": "Tools",
           "proficiency": "",
           "level": 0,
-          "keywords": []
+          "keywords": [
+            "Docker",
+            "yaml",
+            "Git",
+            "kafka",
+            "kubernetics"
+          ]
         },
         {
           "id": "w4681z5e66doxy76zlmyjopf",
           "hidden": false,
           "icon": "",
-          "name": "PostgreSQL/MySQL",
+          "name": "Database",
           "proficiency": "",
           "level": 0,
-          "keywords": []
+          "keywords": [
+            "postgreSQL",
+            "MySQL"
+          ]
         },
         {
           "id": "esvvyeadiynjnmlsqh8hkflj",
           "hidden": false,
           "icon": "",
-          "name": "AWS / Azure",
+          "name": "Cloud Platform",
           "proficiency": "",
           "level": 0,
-          "keywords": []
-        },
-        {
-          "id": "vhvinxxcktxb5xjxie5riqnt",
-          "hidden": false,
-          "icon": "",
-          "name": "Git",
-          "proficiency": "",
-          "level": 0,
-          "keywords": []
-        },
-        {
-          "id": "bbp1q8q1dpdbqqlivm4sbkxm",
-          "hidden": false,
-          "icon": "",
-          "name": "Kubernetes",
-          "proficiency": "",
-          "level": 0,
-          "keywords": []
-        },
-        {
-          "id": "n9giweacklntsthozuphwevo",
-          "hidden": false,
-          "icon": "",
-          "name": "Kafka",
-          "proficiency": "",
-          "level": 0,
-          "keywords": []
+          "keywords": [
+            "AWS",
+            "Azure",
+            "GCP",
+            "Tencent/Alibaba"
+          ]
         },
         {
           "id": "wqsn9w2bx1w5dlfwj8sg6nlq",
@@ -407,7 +406,7 @@
     "design": {
       "level": {
         "icon": "star",
-        "type": "circle"
+        "type": "progress-bar"
       },
       "colors": {
         "primary": "rgba(230, 157, 0, 1)",

@@ -210,13 +210,16 @@ body {
 
 .np-photo-frame {
   flex-shrink: 0;
-  width: 150px;
-  height: 170px;
+  width: 240px;
+  height: 240px;
   border: 3px solid var(--np-border);
   padding: 6px;
   background: var(--np-bg-card);
   box-shadow: var(--np-shadow);
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Inner aged border effect */
@@ -236,6 +239,9 @@ body {
   position: relative;
   /* Sepia overlay for vintage look */
   filter: sepia(0.15) contrast(1.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .np-photo pre {

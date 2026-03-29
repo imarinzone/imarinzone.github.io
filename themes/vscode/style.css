@@ -407,13 +407,16 @@ body {
 /* Profile art in code */
 .vsc-profile-embed {
   margin: 4px 0 4px 50px;
-  width: 120px;
-  height: 130px;
+  width: 240px;
+  height: 240px;
   overflow: hidden;
   border: 2px solid var(--vsc-accent);
   position: relative;
   background: #000;
   clip-path: polygon(15% 0%, 85% 0%, 100% 15%, 100% 85%, 85% 100%, 15% 100%, 0% 85%, 0% 15%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .vsc-profile-embed pre {

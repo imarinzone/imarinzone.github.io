@@ -4,13 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#f5f0e1" />
-  <title>Arindam Kumar Nath — Graphic View</title>
-  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-  <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+  <title>Graphic Theme</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./poster.css" />
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
   <div class="poster">
@@ -19,15 +19,12 @@
       <div class="poster-header-inner">
         <div class="poster-brand">
           <span class="poster-brand-dot"></span>
-          <span class="poster-brand-name" data-name>Arindam Kumar Nath</span>
+          <span class="poster-brand-name" data-name></span>
         </div>
         <nav class="poster-nav">
           <a href="#p-experience">Experience</a>
           <a href="#p-projects">Projects</a>
           <a href="#p-skills">Skills</a>
-          <a href="./index.html" class="poster-switch-btn" title="Switch to default view">Default</a>
-          <a href="./newspaper.html" class="poster-switch-btn" title="Switch to newspaper view">Newspaper</a>
-          <a href="./vscode.html" class="poster-switch-btn" title="Switch to VS Code view">VS Code</a>
           <a class="poster-email-btn" id="emailLink" target="_blank" rel="noopener">Email</a>
         </nav>
       </div>
@@ -35,8 +32,8 @@
 
     <!-- Hero: Name + Subtitle -->
     <section class="poster-hero">
-      <h1 class="poster-name" data-name>ARINDAM KUMAR NATH</h1>
-      <p class="poster-headline" data-headline>SOFTWARE DEVELOPER — BACKEND & CLOUD</p>
+      <h1 class="poster-name" data-name></h1>
+      <p class="poster-headline" data-headline></p>
     </section>
 
     <!-- Two Column Layout -->
@@ -55,11 +52,10 @@
           </div>
         </section>
 
-        <!-- Areas of Expertise -->
+        <!-- Profiles -->
         <section class="poster-section">
-          <h2 class="poster-section-title">Areas of Expertise</h2>
-          <div class="poster-chips" id="topicChips"></div>
-          <div class="poster-expertise-grid" id="topicGrid"></div>
+          <h2 class="poster-section-title" id="profilesTitle"></h2>
+          <div class="poster-expertise-grid" id="profilesGrid"></div>
         </section>
       </div>
 
@@ -94,8 +90,8 @@
     <!-- Footer -->
     <footer class="poster-footer">
       <div class="poster-footer-inner">
-        <strong class="poster-footer-text">OPEN TO BACKEND AND PLATFORM ROLES</strong>
-        <span class="poster-footer-location" id="footerLocation">Remote friendly</span>
+        <strong class="poster-footer-text" id="footerHeadline"></strong>
+        <span class="poster-footer-location" id="footerLocation"></span>
         <div class="poster-footer-links">
           <a id="footerGithub" target="_blank" rel="noopener">GitHub</a>
           <a id="footerLinkedin" target="_blank" rel="noopener">LinkedIn</a>
@@ -105,7 +101,8 @@
     </footer>
   </div>
 
-  <script src="./config.js"></script>
-  <script src="./poster-app.js"></script>
+  <script src="../../config.js"></script>
+  <script src="../../src/rxresume.js"></script>
+  <script src="./app.js"></script>
 </body>
 </html>

@@ -1,59 +1,12 @@
-/* Data + DOM helpers */
 let resume = null;
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
-/* Load resume data from JSON file */
 async function loadResumeData() {
   try {
-    const response = await fetch(CONFIG.paths.resumeData);
-    if (!response.ok) {
-      throw new Error(`Failed to load resume data: ${response.status}`);
-    }
-    const data = await response.json();
-    
-    // Transform data structure to match what the code expects
-    resume = {
-      basics: data.basics,
-      sections: {
-        summary: data.summary ? {
-          content: data.summary.content
-        } : null,
-        profiles: data.sections?.profiles || { items: [] },
-        experience: data.sections?.experience ? {
-          items: (data.sections.experience.items || []).map(item => ({
-            ...item,
-            date: item.period || '',
-            summary: item.description || '',
-            website: item.website || null
-          }))
-        } : { items: [] },
-        projects: data.sections?.projects ? {
-          items: (data.sections.projects.items || []).map(item => ({
-            ...item,
-            url: item.website ? { href: item.website.url || '' } : { href: '' },
-            summary: item.description || ''
-          }))
-        } : { items: [] },
-        education: data.sections?.education ? {
-          items: (data.sections.education.items || []).map(item => ({
-            ...item,
-            institution: item.school || '',
-            studyType: item.degree || '',
-            score: item.grade || '',
-            date: item.period || '',
-            summary: item.description || ''
-          }))
-        } : { items: [] },
-        skills: data.sections?.skills || { items: [] },
-        languages: data.sections?.languages || { items: [] }
-      }
-    };
-    
-    // Initialize the page after data is loaded
+    resume = await window.RxResumeData.loadResume(CONFIG.paths.resumeData);
     initializePage();
-    
-    // Re-initialize animations after page content is loaded
+    loadProfileArt();
     setTimeout(() => {
       if (window.scrollObserver) {
         initScrollAnimations();
@@ -61,14 +14,12 @@ async function loadResumeData() {
     }, 200);
   } catch (error) {
     console.error('Error loading resume data:', error);
-    // Show error message to user
     document.body.innerHTML = CONFIG.errors.resumeLoadError;
   }
 }
 
 /* Theme */
 const body = document.body;
-const themeToggle = document.getElementById('themeToggle');
 const themeColorMeta = document.querySelector('meta[name="theme-color"]');
 const savedTheme = localStorage.getItem(CONFIG.storage.theme);
 
@@ -80,12 +31,6 @@ if (savedTheme) {
       body.classList.add(cls);
     }
   });
-}
-
-function updateThemeIcon() { 
-  themeToggle.querySelector('.icon').textContent = body.classList.contains('theme-dark') 
-    ? CONFIG.theme.icons.dark 
-    : CONFIG.theme.icons.light; 
 }
 
 function updateThemeColor() {
@@ -101,135 +46,71 @@ function saveTheme() {
   localStorage.setItem(CONFIG.storage.theme, classes);
 }
 
-updateThemeIcon();
 updateThemeColor();
-
-themeToggle.addEventListener('click', () => {
-  if (body.classList.contains('theme-dark')) {
-    body.classList.remove('theme-dark');
-    body.classList.add('theme-light');
-  } else {
-    body.classList.remove('theme-light');
-    body.classList.add('theme-dark');
-  }
-  saveTheme();
-  updateThemeIcon();
-  updateThemeColor();
-});
 
 /* Initialize page with resume data */
 function initializePage() {
   if (!resume) return;
-  
-  /* Bind basics */
-  $('[data-name]').textContent = resume.basics.name;
-  $('[data-headline]').textContent = `${resume.basics.headline}${CONFIG.display.headlineSuffix}`;
-  $('#emailLink').href = `mailto:${resume.basics.email}`;
-  $('#footerEmail').href = `mailto:${resume.basics.email}`;
-  
-  // Update footer location from JSON
-  if (resume.basics.location) {
-    $('#footerLocation').textContent = `${resume.basics.location} • Remote friendly`;
+
+  const basics = resume.basics || {};
+  document.title = [basics.name, basics.headline].filter(Boolean).join(' - ');
+
+  $$('[data-name]').forEach((node) => {
+    node.textContent = basics.name || '';
+  });
+  $$('[data-headline]').forEach((node) => {
+    node.textContent = basics.headline || '';
+  });
+
+  if (basics.email) {
+    $('#emailLink').href = `mailto:${basics.email}`;
+    $('#footerEmail').href = `mailto:${basics.email}`;
   }
-  
-  // Add website/portfolio link if available
-  if (resume.basics.website?.url) {
-    const websiteLabel = resume.basics.website.label || 'Portfolio';
+
+  if (basics.location) {
+    $('#footerLocation').textContent = basics.location;
+  }
+
+  const summarySection = resume.summary;
+  $('#summaryText').innerHTML = summarySection?.hidden ? '' : (summarySection?.content || '');
+
+  const profiles = window.RxResumeData.getItems(resume, 'profiles');
+
+  const github = profiles.find((p) => (p.network || '').toLowerCase().includes('github'));
+  const linkedin = profiles.find((p) => (p.network || '').toLowerCase().includes('linkedin'));
+  if (github) {
+    const githubUrl = window.RxResumeData.getLink(github.website);
+    if (githubUrl) {
+      $('#githubLink').href = githubUrl;
+      $('#footerGithub').href = githubUrl;
+    }
+  }
+  if (linkedin) {
+    const linkedinUrl = window.RxResumeData.getLink(linkedin.website);
+    if (linkedinUrl) {
+      $('#linkedinLink').href = linkedinUrl;
+      $('#footerLinkedin').href = linkedinUrl;
+    }
+  }
+
+  const websiteUrl = window.RxResumeData.getLink(basics.website);
+  if (websiteUrl) {
     const footerLinks = $('.footer-links');
     if (footerLinks && !$('#footerWebsite')) {
       const websiteLink = document.createElement('a');
       websiteLink.id = 'footerWebsite';
-      websiteLink.href = resume.basics.website.url;
+      websiteLink.href = websiteUrl;
       websiteLink.target = '_blank';
       websiteLink.rel = 'noopener';
-      websiteLink.textContent = websiteLabel;
+      websiteLink.textContent = basics.website.label || websiteUrl;
       footerLinks.appendChild(websiteLink);
     }
   }
-  
-  // Add phone number to footer location if available
-  if (resume.basics.phone) {
-    const footerLocation = $('#footerLocation');
-    if (footerLocation) {
-      const currentText = footerLocation.textContent;
-      footerLocation.innerHTML = `${currentText}<br><a href="tel:${resume.basics.phone.replace(/\s/g, '')}" class="muted-link">${resume.basics.phone}</a>`;
-    }
+
+  const headlineTarget = $('#footerHeadline');
+  if (headlineTarget) {
+    headlineTarget.textContent = basics.headline || '';
   }
-
-  /* Summary */
-  const summaryHtml = resume.sections?.summary?.content || '';
-  $('#summaryText').innerHTML = summaryHtml;
-
-  /* Profiles (GitHub, LinkedIn) */
-  const profiles = resume.sections?.profiles?.items || [];
-  const github = profiles.find(p => (p.network || '').toLowerCase().includes('github'));
-  const linkedin = profiles.find(p => (p.network || '').toLowerCase().includes('linkedin'));
-  if (github) {
-    const githubUrl = github.website?.url || github.url?.href || '#';
-    $('#githubLink').href = githubUrl;
-    $('#footerGithub').href = githubUrl;
-  }
-  if (linkedin) {
-    const linkedinUrl = linkedin.website?.url || linkedin.url?.href || '#';
-    $('#linkedinLink').href = linkedinUrl;
-    $('#footerLinkedin').href = linkedinUrl;
-  }
-
-/* Featured topic cards */
-const topics = CONFIG.topics;
-const chipRow = document.getElementById('topicChips');
-const topicGrid = document.getElementById('topicGrid');
-let activeFilter = 'all';
-
-function renderChips() {
-  const allChips = ['all', ...topics.map(t => t.id)];
-  chipRow.innerHTML = allChips.map(id => {
-    const label = id === 'all' ? 'All' : id[0].toUpperCase() + id.slice(1);
-    return `<button class="chip ${id === activeFilter ? 'active' : ''}" data-chip="${id}">${label}</button>`;
-  }).join('');
-}
-
-function renderTopicCards() {
-  const filtered = activeFilter === 'all' ? topics : topics.filter(t => t.id === activeFilter);
-  topicGrid.innerHTML = filtered.map(t => `
-    <article class="card tilt animate-on-scroll" data-tilt data-id="${t.id}">
-      <div class="card-title">${t.title}</div>
-      <div class="card-meta">${t.meta}</div>
-      <div class="card-body">${t.body}</div>
-      <div class="card-actions">
-        <div class="tag-row">${t.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}</div>
-        <button class="expand" aria-expanded="false">Details</button>
-      </div>
-      <div class="card-details">${t.details}</div>
-    </article>
-  `).join('');
-
-  // Hook up card interactions
-  $$('.card .expand', topicGrid).forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      const card = e.currentTarget.closest('.card');
-      const expanded = card.classList.toggle('expanded');
-      btn.setAttribute('aria-expanded', String(expanded));
-    });
-  });
-
-  enableTilt($$('.tilt', topicGrid));
-  
-  // Re-initialize scroll animations for new cards
-  if (window.scrollObserver) {
-    $$('.card', topicGrid).forEach(card => {
-      window.scrollObserver.observe(card);
-    });
-  }
-}
-
-chipRow.addEventListener('click', (e) => {
-  const chip = e.target.closest('[data-chip]');
-  if (!chip) return;
-  activeFilter = chip.getAttribute('data-chip');
-  renderChips();
-  renderTopicCards();
-});
 
 function enableTilt(cards) {
   cards.forEach(card => {
@@ -247,12 +128,9 @@ function enableTilt(cards) {
   });
 }
 
-renderChips();
-renderTopicCards();
-
   /* Experience */
   const expList = document.getElementById('experienceList');
-  (resume.sections?.experience?.items || []).forEach(item => {
+  window.RxResumeData.getItems(resume, 'experience').forEach(item => {
     const el = document.createElement('article');
     el.className = 'timeline-item animate-on-scroll';
     
@@ -265,10 +143,10 @@ renderTopicCards();
       <div class="timeline-head">
         <div>
           <div class="timeline-title">${item.position} • ${companyName}</div>
-          <div class="timeline-meta">${item.date}</div>
+          <div class="timeline-meta">${item.period || ''}</div>
         </div>
       </div>
-      <div class="timeline-body">${item.summary || ''}</div>
+      <div class="timeline-body">${item.description || ''}</div>
     `;
     expList.appendChild(el);
   });
@@ -276,16 +154,17 @@ renderTopicCards();
   /* Projects */
   const projectsGrid = document.getElementById('projectsGrid');
   const projectCards = [];
-  (resume.sections?.projects?.items || []).filter(p => p.hidden !== true).forEach(p => {
+  window.RxResumeData.getItems(resume, 'projects').forEach(p => {
     const el = document.createElement('article');
     el.className = 'card tilt animate-on-scroll';
+    const projectLink = window.RxResumeData.getLink(p.website);
     el.innerHTML = `
       <div class="card-title">${p.name}</div>
       <div class="card-meta"></div>
-      <div class="card-body">${p.summary || p.description || ''}</div>
+      <div class="card-body">${p.description || ''}</div>
       <div class="card-actions">
         <div class="tag-row"></div>
-        ${p.url?.href ? `<a href="${p.url.href}" target="_blank" class="btn btn-ghost">Open</a>` : ''}
+        ${projectLink ? `<a href="${projectLink}" target="_blank" class="btn btn-ghost">Open</a>` : ''}
       </div>
     `;
     projectsGrid.appendChild(el);
@@ -295,20 +174,20 @@ renderTopicCards();
 
   /* Education */
   const eduList = document.getElementById('educationList');
-  (resume.sections?.education?.items || []).forEach(ed => {
+  window.RxResumeData.getItems(resume, 'education').forEach(ed => {
     const el = document.createElement('article');
     el.className = 'edu-item animate-on-scroll';
     el.innerHTML = `
-      <div class="timeline-title">${ed.studyType} • ${ed.institution}</div>
-      <div class="timeline-meta">${ed.area || ''} ${ed.score ? '• ' + ed.score : ''} • ${ed.date || ''}</div>
-      <div class="timeline-body">${ed.summary || ''}</div>
+      <div class="timeline-title">${ed.degree || ''} • ${ed.school || ''}</div>
+      <div class="timeline-meta">${ed.area || ''} ${ed.grade ? '• ' + ed.grade : ''} • ${ed.period || ''}</div>
+      <div class="timeline-body">${ed.description || ''}</div>
     `;
     eduList.appendChild(el);
   });
 
   /* Skills */
   const skillsCloud = document.getElementById('skillsCloud');
-  (resume.sections?.skills?.items || []).forEach(s => {
+  window.RxResumeData.getItems(resume, 'skills').forEach(s => {
     const el = document.createElement('span');
     el.className = 'skill animate-on-scroll';
     el.textContent = s.name;
@@ -318,7 +197,7 @@ renderTopicCards();
   /* Languages */
   const languagesList = document.getElementById('languagesList');
   if (languagesList) {
-    const languages = resume.sections?.languages?.items || [];
+    const languages = window.RxResumeData.getItems(resume, 'languages');
     if (languages.length > 0) {
       languagesList.innerHTML = languages.map((lang, index) => {
         const fluency = lang.fluency || '';
@@ -333,49 +212,80 @@ renderTopicCards();
   }
 }
 
-/* Apply section visibility based on config */
-function applySectionVisibility() {
-  // Hide/show sections
-  Object.keys(CONFIG.sections).forEach(sectionId => {
-    const section = document.getElementById(sectionId);
-    const navLink = document.querySelector(`a.nav-link[href="#${sectionId}"]`);
-    
-    if (section) {
-      section.style.display = CONFIG.sections[sectionId] ? '' : 'none';
-    }
-    
-    if (navLink) {
-      navLink.style.display = CONFIG.sections[sectionId] ? '' : 'none';
-    }
-  });
-}
-
 /* Load Profile Art */
 async function loadProfileArt() {
+  const profileArt = document.getElementById('profileArt');
+  if (!profileArt || !resume) return;
+
+  const pictureMeta = window.RxResumeData.getPictureMetadata(resume);
+  
+  // Check if picture is hidden
+  if (pictureMeta.hidden) {
+    profileArt.innerHTML = '';
+    return;
+  }
+
   try {
-    const response = await fetch(CONFIG.paths.profileArt);
-    const html = await response.text();
-    
-    // Load into hero section
-    const profileArt = document.getElementById('profileArt');
-    if (profileArt) {
+    const pictureUrl = window.RxResumeData.getPictureUrl(resume);
+
+    if (pictureUrl) {
+      // Create container with aspect ratio
+      const container = document.createElement('div');
+      container.style.width = (pictureMeta.size || 200) + 'px';
+      container.style.aspectRatio = (pictureMeta.aspectRatio || 1);
+      container.style.overflow = 'hidden';
+      container.style.position = 'relative';
+      
+      // Apply border
+      if (pictureMeta.borderWidth) {
+        container.style.borderWidth = (pictureMeta.borderWidth * 4 / 3) + 'px';
+        container.style.borderColor = pictureMeta.borderColor || 'transparent';
+        container.style.borderStyle = 'solid';
+      }
+      
+      // Apply border radius
+      if (pictureMeta.borderRadius !== undefined) {
+        container.style.borderRadius = (pictureMeta.borderRadius * 4 / 3) + 'px';
+      }
+      
+      // Apply shadow
+      if (pictureMeta.shadowWidth && pictureMeta.shadowWidth > 0) {
+        const shadowBlur = pictureMeta.shadowWidth * 4 / 3;
+        container.style.boxShadow = `0 4px ${shadowBlur}px ${pictureMeta.shadowColor || 'rgba(0,0,0,0.5)'}`;
+      }
+      
+      // Apply rotation
+      if (pictureMeta.rotation) {
+        container.style.transform = `rotate(${pictureMeta.rotation}deg)`;
+      }
+
+      // Create image element
+      const img = document.createElement('img');
+      img.src = pictureUrl;
+      img.alt = 'Profile picture';
+      img.style.width = '100%';
+      img.style.height = '100%';
+      img.style.objectFit = 'cover';
+      img.style.objectPosition = 'center';
+      img.style.display = 'block';
+
+      profileArt.innerHTML = '';
+      container.appendChild(img);
+      profileArt.appendChild(container);
+    } else {
+      // Fallback: try loading from static HTML file
+      const response = await fetch(CONFIG.paths.profileArt);
+      const html = await response.text();
       profileArt.innerHTML = html;
     }
-    
   } catch (error) {
     console.log(CONFIG.errors.profileArtNotFound);
-    // Fallback: create a simple profile placeholder
-    const profileArt = document.getElementById('profileArt');
-    if (profileArt) {
-      profileArt.innerHTML = CONFIG.fallbacks.profileArt;
-    }
+    profileArt.innerHTML = CONFIG.fallbacks.profileArt || '';
   }
 }
-
-// Load profile art when DOM is ready
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', loadProfileArt);
-} else {
+            
+// Load profile art after resume data is loaded (called in initializePage)
+function loadProfileArtAfterResume() {
   loadProfileArt();
 }
 
@@ -560,7 +470,6 @@ function addRippleStyles() {
 // Load resume data when DOM is ready
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
-    applySectionVisibility();
     loadResumeData();
     addRippleStyles();
     initSmoothScroll();
@@ -573,7 +482,6 @@ if (document.readyState === 'loading') {
     }, 300);
   });
 } else {
-  applySectionVisibility();
   loadResumeData();
   addRippleStyles();
   initSmoothScroll();

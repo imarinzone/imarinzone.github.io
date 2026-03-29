@@ -12,5 +12,8 @@
     "website"
   ],
   "author": "Arindam Kumar Nath",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "ajv": "^8.18.0"
+  }
 }
