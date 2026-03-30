@@ -3,356 +3,165 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0b0f14" />
-  <title>Portfolio</title>
+  <meta name="theme-color" content="#1e1e2e" />
+  <title>VS Code Theme</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg: #0b0f14;
-      --surface: #131920;
-      --surface-2: #1a2330;
-      --border: rgba(255,255,255,0.08);
-      --text: #f8f9fa;
-      --muted: #8b95a1;
-      --accent: #4f8ef7;
-      --accent-glow: rgba(79,142,247,0.18);
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Inter', system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* ── Header ── */
-    .header {
-      padding: 1.5rem 2rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .brand-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 12px var(--accent);
-      flex-shrink: 0;
-    }
-
-    .brand-name {
-      font-size: 1rem;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      color: var(--text);
-      min-width: 4ch;
-    }
-
-    /* ── Hero ── */
-    .hero {
-      padding: 5rem 2rem 3rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 70% 50% at 50% -10%, rgba(79,142,247,0.12) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .hero-eyebrow {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1rem;
-    }
-
-    .hero-title {
-      font-size: clamp(2rem, 5vw, 3.25rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.1;
-      margin-bottom: 1rem;
-    }
-
-    .hero-sub {
-      font-size: 1.0625rem;
-      color: var(--muted);
-      max-width: 36ch;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-
-    /* ── Grid ── */
-    .grid-wrap {
-      padding: 3rem 2rem 5rem;
-      max-width: 1080px;
-      margin: 0 auto;
-      width: 100%;
-    }
-
-    .grid-label {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1.5rem;
-    }
-
-    .theme-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 1.25rem;
-    }
-
-    /* ── Theme Card ── */
-    .theme-card {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1.75rem 1.5rem 1.5rem;
-      text-decoration: none;
-      color: inherit;
-      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-      overflow: hidden;
-      cursor: pointer;
-    }
-
-    .theme-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(79,142,247,0.4);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(79,142,247,0.15);
-    }
-
-    .theme-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      transition: opacity 0.2s ease;
-      pointer-events: none;
-    }
-
-    .theme-card:hover::before { opacity: 1; }
-
-    /* Per-theme accent colours */
-    .card-modern::before  { background: radial-gradient(ellipse at 0% 0%, rgba(79,142,247,0.12), transparent 60%); }
-    .card-graphic::before { background: radial-gradient(ellipse at 0% 0%, rgba(255,180,60,0.12), transparent 60%); }
-    .card-news::before    { background: radial-gradient(ellipse at 0% 0%, rgba(212,197,160,0.14), transparent 60%); }
-    .card-vscode::before  { background: radial-gradient(ellipse at 0% 0%, rgba(97,175,239,0.12), transparent 60%); }
-
-    .card-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.25rem;
-      margin-bottom: 1.25rem;
-      flex-shrink: 0;
-    }
-
-    .card-modern .card-icon  { background: rgba(79,142,247,0.15);  color: #4f8ef7; }
-    .card-graphic .card-icon { background: rgba(255,180,60,0.15);  color: #ffb43c; }
-    .card-news .card-icon    { background: rgba(212,197,160,0.18); color: #d4c5a0; }
-    .card-vscode .card-icon  { background: rgba(97,175,239,0.15);  color: #61afef; }
-
-    .card-name {
-      font-size: 1.0625rem;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      margin-bottom: 0.4rem;
-    }
-
-    .card-desc {
-      font-size: 0.875rem;
-      color: var(--muted);
-      line-height: 1.55;
-      flex: 1;
-      margin-bottom: 1.5rem;
-    }
-
-    .card-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .tag {
-      font-size: 0.6875rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      padding: 0.2rem 0.55rem;
-      border-radius: 999px;
-      background: var(--surface-2);
-      color: var(--muted);
-      border: 1px solid var(--border);
-    }
-
-    .card-cta {
-      font-size: 0.8125rem;
-      font-weight: 600;
-      color: var(--accent);
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-
-    .card-cta svg { transition: transform 0.2s ease; }
-    .theme-card:hover .card-cta svg { transform: translateX(3px); }
-
-    /* ── Footer ── */
-    .footer {
-      margin-top: auto;
-      padding: 1.25rem 2rem;
-      border-top: 1px solid var(--border);
-      text-align: center;
-      font-size: 0.8125rem;
-      color: var(--muted);
-    }
-
-    @media (max-width: 480px) {
-      .hero { padding: 3.5rem 1.25rem 2rem; }
-      .grid-wrap { padding: 2rem 1.25rem 3rem; }
-      .theme-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-  <header class="header">
-    <span class="brand-dot" aria-hidden="true"></span>
-    <span class="brand-name" id="brandName">Portfolio</span>
-  </header>
+  <div class="vsc">
+    <!-- Title Bar -->
+    <div class="vsc-titlebar">
+      <div class="vsc-titlebar-left">
+        <span class="vsc-menu-item">File</span>
+        <span class="vsc-menu-item">Edit</span>
+        <span class="vsc-menu-item">Selection</span>
+        <span class="vsc-menu-item">View</span>
+        <span class="vsc-menu-item">Run</span>
+        <span class="vsc-menu-item">Terminal</span>
+        <span class="vsc-menu-item">Help</span>
+      </div>
+      <div class="vsc-titlebar-center" data-name></div>
+      <div class="vsc-titlebar-right">
+        <span class="vsc-win-btn">─</span>
+        <span class="vsc-win-btn">□</span>
+        <span class="vsc-win-btn vsc-win-close">×</span>
+      </div>
+    </div>
 
-  <section class="hero">
-    <p class="hero-eyebrow">Portfolio</p>
-    <h1 class="hero-title" id="heroName">Choose a Theme</h1>
-    <p class="hero-sub" id="heroSub">Select how you'd like to explore this portfolio.</p>
-  </section>
+    <div class="vsc-main">
+      <!-- Activity Bar -->
+      <div class="vsc-activity-bar">
+        <div class="vsc-activity-icon active" data-panel="explorer" title="Explorer">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>
+        </div>
+        <div class="vsc-activity-icon" data-panel="search" title="Search">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </div>
+        <div class="vsc-activity-icon" data-panel="git" title="Source Control">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 21V9a9 9 0 009 9"/></svg>
+        </div>
+        <div class="vsc-activity-icon" title="Extensions">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        </div>
+        <div class="vsc-activity-bottom">
+          <a href="/index.html" class="vsc-activity-icon" title="Theme Picker">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+          </a>
+        </div>
+      </div>
 
-  <div class="grid-wrap">
-    <p class="grid-label">Available themes</p>
-    <div class="theme-grid">
+      <!-- Sidebar / Explorer -->
+      <div class="vsc-sidebar" id="sidebar">
+        <div class="vsc-sidebar-header">EXPLORER</div>
+        <div class="vsc-sidebar-section">
+          <div class="vsc-tree-header">
+            <span class="vsc-tree-arrow">▾</span> src
+          </div>
+          <div class="vsc-tree-items">
+            <div class="vsc-tree-item active" data-tab="about_me">
+              <span class="vsc-file-icon go">⛓</span> about_me.go
+            </div>
+            <div class="vsc-tree-item" data-tab="experience">
+              <span class="vsc-file-icon yml">!</span> experience.yml
+            </div>
+            <div class="vsc-tree-item" data-tab="projects">
+              <span class="vsc-file-icon json">{}</span> projects.json
+            </div>
+            <div class="vsc-tree-item" data-tab="skills">
+              <span class="vsc-file-icon toml">⛭</span> skills.toml
+            </div>
+            <div class="vsc-tree-item" data-tab="contact">
+              <span class="vsc-file-icon md">♦</span> contact.md
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <a class="theme-card card-modern" href="./themes/modern/index.html">
-        <div class="card-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18"/><circle cx="7.5" cy="6" r="1"/><circle cx="11" cy="6" r="1"/><circle cx="14.5" cy="6" r="1"/></svg>
+      <!-- Editor Area -->
+      <div class="vsc-editor-area">
+        <!-- Tabs -->
+        <div class="vsc-tabs">
+          <div class="vsc-tab active" data-tab="about_me">
+            <span class="vsc-file-icon go">⛓</span> about_me.go <span class="vsc-tab-close">×</span>
+          </div>
+          <div class="vsc-tab" data-tab="experience">
+            <span class="vsc-file-icon yml">!</span> experience.yml <span class="vsc-tab-close">×</span>
+          </div>
+          <div class="vsc-tab" data-tab="projects">
+            <span class="vsc-file-icon json">{}</span> projects.json <span class="vsc-tab-close">×</span>
+          </div>
+          <div class="vsc-tab" data-tab="skills">
+            <span class="vsc-file-icon toml">⛭</span> skills.toml <span class="vsc-tab-close">×</span>
+          </div>
+          <div class="vsc-tab" data-tab="contact">
+            <span class="vsc-file-icon md">♦</span> contact.md <span class="vsc-tab-close">×</span>
+          </div>
         </div>
-        <div class="card-name">Modern</div>
-        <div class="card-desc">Clean, minimal dark UI with smooth animations and a contemporary feel.</div>
-        <div class="card-tags">
-          <span class="tag">Dark mode</span>
-          <span class="tag">Minimal</span>
-          <span class="tag">Animated</span>
-        </div>
-        <div class="card-cta">
-          Open
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </div>
-      </a>
 
-      <a class="theme-card card-graphic" href="./themes/graphic/index.html">
-        <div class="card-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        <!-- Breadcrumb -->
+        <div class="vsc-breadcrumb">
+          <span>src</span> <span class="vsc-breadcrumb-sep">›</span> <span id="breadcrumbFile">about_me.go</span>
         </div>
-        <div class="card-name">Graphic</div>
-        <div class="card-desc">Bold poster-style design with strong typography and a graphic design aesthetic.</div>
-        <div class="card-tags">
-          <span class="tag">Bold</span>
-          <span class="tag">Poster</span>
-          <span class="tag">Two-column</span>
-        </div>
-        <div class="card-cta">
-          Open
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </div>
-      </a>
 
-      <a class="theme-card card-news" href="./themes/newspaper/index.html">
-        <div class="card-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22h16a2 2 0 002-2V4a2 2 0 00-2-2H8a2 2 0 00-2 2v16a2 2 0 01-2 2zm0 0a2 2 0 01-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8M15 18h-5M10 6h8v4h-8z"/></svg>
+        <!-- Editor Panels -->
+        <div class="vsc-editor-content">
+          <!-- about_me.go -->
+          <div class="vsc-panel active" id="panel-about_me"></div>
+          <!-- experience.yml -->
+          <div class="vsc-panel" id="panel-experience"></div>
+          <!-- projects.json -->
+          <div class="vsc-panel" id="panel-projects"></div>
+          <!-- skills.toml -->
+          <div class="vsc-panel" id="panel-skills"></div>
+          <!-- contact.md -->
+          <div class="vsc-panel" id="panel-contact"></div>
         </div>
-        <div class="card-name">Newspaper</div>
-        <div class="card-desc">Classic editorial layout with serif typography — like a broadsheet front page.</div>
-        <div class="card-tags">
-          <span class="tag">Editorial</span>
-          <span class="tag">Serif</span>
-          <span class="tag">Classic</span>
-        </div>
-        <div class="card-cta">
-          Open
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </div>
-      </a>
 
-      <a class="theme-card card-vscode" href="./themes/vscode/index.html">
-        <div class="card-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        <!-- Terminal -->
+        <div class="vsc-terminal" id="terminal">
+          <div class="vsc-terminal-tabs">
+            <span class="vsc-terminal-tab-label">PROBLEMS</span>
+            <span class="vsc-terminal-tab-label">OUTPUT</span>
+            <span class="vsc-terminal-tab-label">DEBUG CONSOLE</span>
+            <span class="vsc-terminal-tab-label active">TERMINAL</span>
+          </div>
+          <div class="vsc-terminal-body" id="terminalBody">
+            <div class="vsc-term-line">
+              <span class="vsc-term-prompt">arindam@portfolio</span>:<span class="vsc-term-path">~/code</span>$ <span class="vsc-term-cmd">go run about_me.go</span>
+            </div>
+            <div class="vsc-term-line vsc-term-output">Profile loaded successfully!</div>
+            <div class="vsc-term-line">
+              <span class="vsc-term-prompt">arindam@portfolio</span>:<span class="vsc-term-path">~/code</span>$ <span class="vsc-term-cursor">▊</span>
+            </div>
+          </div>
         </div>
-        <div class="card-name">VS Code</div>
-        <div class="card-desc">IDE-style layout with syntax highlighting — for developers who think in code.</div>
-        <div class="card-tags">
-          <span class="tag">IDE</span>
-          <span class="tag">Dracula</span>
-          <span class="tag">Syntax</span>
-        </div>
-        <div class="card-cta">
-          Open
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </div>
-      </a>
+      </div>
+    </div>
 
+    <!-- Status Bar -->
+    <div class="vsc-statusbar">
+      <div class="vsc-statusbar-left">
+        <span class="vsc-status-item vsc-status-branch">⎇ branch</span>
+        <span class="vsc-status-item">⊘ 0 ▲ 0</span>
+      </div>
+      <div class="vsc-statusbar-right">
+        <span class="vsc-status-item" id="statusLine">Ln 2, Col 1</span>
+        <span class="vsc-status-item">Spaces: 4</span>
+        <span class="vsc-status-item">UTF-8</span>
+        <span class="vsc-status-item">CRLF</span>
+        <span class="vsc-status-item" id="statusLang">Go</span>
+        <span class="vsc-status-item vsc-status-theme">Dracula</span>
+      </div>
     </div>
   </div>
 
-  <footer class="footer">
-    <span id="footerName"></span>
-  </footer>
-
-  <script>
-    (async function () {
-      try {
-        const res = await fetch('/resume/Reactive Resume.json');
-        if (!res.ok) return;
-        const data = await res.json();
-        const name = data?.basics?.name || '';
-        const headline = data?.basics?.headline || '';
-        if (name) {
-          document.getElementById('brandName').textContent = name;
-          document.getElementById('heroName').textContent = name;
-          document.getElementById('footerName').textContent = name + (headline ? ' · ' + headline : '');
-          document.title = name + ' · Portfolio';
-        }
-        if (headline) {
-          document.getElementById('heroSub').textContent = headline + ' — select a theme to explore.';
-        }
-      } catch (_) { /* silent — static fallback text is fine */ }
-    })();
-  </script>
+  <script src="./config.js"></script>
+  <script src="./src/rxresume.js"></script>
+  <script src="./app.js"></script>
 </body>
 </html>
