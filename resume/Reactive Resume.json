@@ -1,372 +1,34 @@
 {
-  "picture": {
-    "hidden": false,
-    "url": "https://storage.rxresu.me/clp9fwawg5ioi9huno4odyqny/pictures/clpc1f3p81vnx14h56drwioxr.jpg",
-    "size": 200,
-    "rotation": 0,
-    "aspectRatio": 1,
-    "borderRadius": 100,
-    "borderColor": "rgba(0, 0, 0, 0)",
-    "borderWidth": 0,
-    "shadowColor": "rgba(0, 0, 0, 0.5)",
-    "shadowWidth": 0
-  },
   "basics": {
-    "name": "Arindam Kumar Nath",
+    "customFields": [],
+    "email": "hello@arindam.fyi",
     "headline": "Software Developer",
-    "email": "imarinzone@gmail.com",
-    "phone": "",
     "location": "Bengaluru, India",
+    "name": "Arindam Kumar Nath",
+    "phone": "",
     "website": {
-      "url": "https://imarinzone.github.io",
-      "label": "Portfolio"
-    },
-    "customFields": []
-  },
-  "summary": {
-    "title": "Summary",
-    "columns": 1,
-    "hidden": false,
-    "content": "<p>Experienced Software Developer with 6+ years of expertise in GoLang, Python, and cloud-based web services. Proven track record of designing scalable and secure solutions, leveraging Kubernetes, AWS, and microservices architecture. Passionate about backend development and optimizing system reliability and efficiency.</p>"
-  },
-  "sections": {
-    "profiles": {
-      "title": "Profiles",
-      "columns": 3,
-      "hidden": false,
-      "items": [
-        {
-          "id": "m85ekips1prjpn08lcobe7kw",
-          "hidden": false,
-          "icon": "linkedin",
-          "network": "Linkedin",
-          "username": "linkedin/in/imarinzone",
-          "website": {
-            "url": "https://www.linkedin.com/in/imarinzone/",
-            "label": ""
-          }
-        },
-        {
-          "id": "eq3ffh2cfx7zsqj0b3tx78r7",
-          "hidden": false,
-          "icon": "github",
-          "network": "github",
-          "username": "github.com/imarinzone",
-          "website": {
-            "url": "https://github.com/imarinzone",
-            "label": ""
-          }
-        }
-      ]
-    },
-    "experience": {
-      "title": "Experience",
-      "columns": 1,
-      "hidden": false,
-      "items": [
-        {
-          "id": "hccjgansoxbqoezw58igm8ka",
-          "hidden": false,
-          "options": {
-            "showLinkInTitle": true
-          },
-          "company": "Coffeebeans.io",
-          "position": "Software Engineer",
-          "location": "",
-          "period": "Jan 2025 – March 2026",
-          "website": {
-            "url": "https://coffeebeans.ai",
-            "label": ""
-          },
-          "description": "<p>Client: <a target=\"_blank\" rel=\"noopener nofollow\" href=\"https://npci.org.in\"><strong>NPCI</strong></a></p><ul><li><p>Working with BHIM app team to launch Unified Bharat ev-Charging using <strong>Golang</strong> and <strong>Beckn Protocol.</strong></p></li><li><p><strong>Developed</strong> a robust, high-security authentication microservice supporting multi-tenancy from ground up to streamline login flows for critical CPO and Ev Charging Network.</p></li></ul><p>Client: <strong>KPC</strong></p><ul><li><p>Implemented OAuth 2.0 and Role-Based Access Control (<strong>RBAC</strong>) authentication on <strong>Azure AD</strong> with Outsystems applications via <strong>Python</strong> , ensuring secure and seamless login for users.</p></li><li><p>Integrated Google vertex <strong>RAG</strong> agent for chat bot integration.</p></li></ul><p>Client: <a target=\"_blank\" rel=\"noopener nofollow\" href=\"https://gojek.com\"><strong>Gojek</strong></a></p><ul><li><p>Developed and enhanced logistics microservices using <strong>Golang</strong>, ensuring high performance, scalability, and seamless system integration.</p></li><li><p><strong>Cloud migration</strong> initiatives from GCP to Tencent Cloud using custom Python automation scripts, achieving minimal downtime and ensuring risk mitigation.</p></li></ul><p></p>",
-          "roles": []
-        },
-        {
-          "id": "lwchph7gktamgupthd7x0aec",
-          "hidden": false,
-          "options": {
-            "showLinkInTitle": true
-          },
-          "company": "UST Global",
-          "position": "Software Engineer - SRE",
-          "location": "",
-          "period": "Aug 2023 – Oct 2024",
-          "website": {
-            "url": "https://ust.com",
-            "label": "Walmart"
-          },
-          "description": "<p>Client: <a target=\"_blank\" rel=\"noopener nofollow\" href=\"https://tech.walmart.com\"><strong>Walmart Global Tech</strong></a></p><ul><li><p>Developed an internal testing framework using <strong>Kubernetes</strong> and <strong>Golang</strong>, preventing critical (p0) issues from reaching production and improving system reliability.</p></li><li><p>Implemented <strong>GRPC</strong> and <strong>GraphQL</strong> for Walmart’s prescription-based sales, reducing API calls and ensuring low-latency communication.</p></li></ul><p></p>",
-          "roles": []
-        },
-        {
-          "id": "rfyzqmnoob731l3hhhllif6q",
-          "hidden": false,
-          "options": {
-            "showLinkInTitle": true
-          },
-          "company": "BYJU'S",
-          "position": "Software Engineer",
-          "location": "",
-          "period": "Apr 2022 – Jul 2023",
-          "website": {
-            "url": "https://byjus.com",
-            "label": "Byju's"
-          },
-          "description": "<ul><li><p>Built a centralized tuition database using <strong>Golang</strong> and <strong>PostgreSQL</strong>, enabling efficient school data management and admin UI integration.</p></li><li><p>Developed <strong>Kafka-based</strong> applications for streamline microservices communication, serving 10k users/sec during Annual Talent Hunt Exams.</p></li></ul>",
-          "roles": []
-        },
-        {
-          "id": "vffx35swrdowj68hvk5zk8z7",
-          "hidden": false,
-          "options": {
-            "showLinkInTitle": true
-          },
-          "company": "Deltek (formally - Replicon)",
-          "position": "Software Engineer",
-          "location": "",
-          "period": "Aug 2019 – Mar 2022",
-          "website": {
-            "url": "https://replicon.com",
-            "label": "Replicon"
-          },
-          "description": "<ul><li><p>Engineered REST APIs in <strong>Golang</strong>, optimizing team-specific frameworks and improving deliverable efficiency.</p></li><li><p>Integrated <strong>feature flags</strong> into the scripting engine, reducing release risks and accelerating the deployment process.</p></li></ul>",
-          "roles": []
-        }
-      ]
-    },
-    "education": {
-      "title": "Education",
-      "columns": 3,
-      "hidden": false,
-      "items": [
-        {
-          "id": "gu7yjw3v3w41h3bbawpl2q5t",
-          "hidden": false,
-          "school": "VTU",
-          "degree": "B.E.",
-          "area": "Computer Science",
-          "grade": "7.0 CGPA",
-          "location": "",
-          "period": "2015 – 2019",
-          "website": {
-            "url": "",
-            "label": ""
-          },
-          "description": "<p>Vemana IT <br>• Bengaluru, Karnataka </p>"
-        },
-        {
-          "id": "u891n483t3ua1fhs7wov4fe3",
-          "hidden": false,
-          "school": "CBSE",
-          "degree": "XII",
-          "area": "Computer Science",
-          "grade": "82.4%",
-          "location": "",
-          "period": "2015",
-          "website": {
-            "url": "",
-            "label": ""
-          },
-          "description": "<p>K.V. Hebbal <br>• Bengaluru, Karnataka</p>"
-        },
-        {
-          "id": "kp2yvtfh0jcoezblgifjeorw",
-          "hidden": false,
-          "school": "CBSE",
-          "degree": "X",
-          "area": "",
-          "grade": "9.2 CGPA",
-          "location": "",
-          "period": "2013",
-          "website": {
-            "url": "",
-            "label": ""
-          },
-          "description": "<p>K.V. A.F. Station <br>• Barrackpore, West Bengal</p>"
-        }
-      ]
-    },
-    "projects": {
-      "title": "Projects",
-      "columns": 1,
-      "hidden": false,
-      "items": [
-        {
-          "id": "019c1899-b23d-76f3-9a66-d1bc8ec81181",
-          "hidden": false,
-          "options": {
-            "showLinkInTitle": true
-          },
-          "name": "MyTravelRecap",
-          "period": "",
-          "website": {
-            "url": "https://mytravelrecap.com",
-            "label": ""
-          },
-          "description": "<p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://github.com/imarinzone/mytravelrecap\">GitHub</a> <br>Built a privacy-centric web tool that converts Google Timeline data into rich infographics and social media cards using device-only processing. Leveraged <strong>Google AI Studio</strong> and <strong>Cursor</strong> to streamline development and implement UI and data parsing logic securely in the browser.</p><p></p>"
-        },
-        {
-          "id": "htwtcn39wo3nu6k7224skhfm",
-          "hidden": false,
-          "options": {
-            "showLinkInTitle": false
-          },
-          "name": "Expense Tracking",
-          "period": "",
-          "website": {
-            "url": "",
-            "label": ""
-          },
-          "description": "<p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://github.com/imarinzone/expense-tracker\">Github</a><br>Created a Python-based expense tracking tool with Jupyter Notebook, providing visual insights into personal finance management.</p>"
-        },
-        {
-          "id": "019d0a65-f2e4-76b8-a67c-d22dd7396a95",
-          "hidden": false,
-          "options": {
-            "showLinkInTitle": true
-          },
-          "name": "TraceAnything",
-          "period": "",
-          "website": {
-            "url": "https://traceanything-294661137879.us-west1.run.app/",
-            "label": ""
-          },
-          "description": "<p><a target=\"_blank\" rel=\"noopener nofollow\" href=\"https://github.com/imarinzone/TraceAnything.git\">GitHub</a><br>An PWA which can help you to trace any image using your phone as a tracing paper.</p>"
-        }
-      ]
-    },
-    "skills": {
-      "title": "Skills",
-      "columns": 3,
-      "hidden": false,
-      "items": [
-        {
-          "id": "j1n3oc1upap0fe10j0qupvuv",
-          "hidden": false,
-          "icon": "",
-          "name": "Programming Languges",
-          "proficiency": "",
-          "level": 0,
-          "keywords": [
-            "Golang",
-            "Python"
-          ]
-        },
-        {
-          "id": "u95jz92ma37gv6weyo5asxvu",
-          "hidden": false,
-          "icon": "",
-          "name": "Tools",
-          "proficiency": "",
-          "level": 0,
-          "keywords": [
-            "Docker",
-            "yaml",
-            "Git",
-            "kafka",
-            "kubernetics"
-          ]
-        },
-        {
-          "id": "w4681z5e66doxy76zlmyjopf",
-          "hidden": false,
-          "icon": "",
-          "name": "Database",
-          "proficiency": "",
-          "level": 0,
-          "keywords": [
-            "postgreSQL",
-            "MySQL"
-          ]
-        },
-        {
-          "id": "esvvyeadiynjnmlsqh8hkflj",
-          "hidden": false,
-          "icon": "",
-          "name": "Cloud Platform",
-          "proficiency": "",
-          "level": 0,
-          "keywords": [
-            "AWS",
-            "Azure",
-            "GCP",
-            "Tencent/Alibaba"
-          ]
-        },
-        {
-          "id": "wqsn9w2bx1w5dlfwj8sg6nlq",
-          "hidden": false,
-          "icon": "",
-          "name": "REST APIs / GraphQL / gRPC",
-          "proficiency": "",
-          "level": 0,
-          "keywords": []
-        }
-      ]
-    },
-    "languages": {
-      "title": "Languages",
-      "columns": 3,
-      "hidden": false,
-      "items": [
-        {
-          "id": "or3ci1jbhe7nzm32cvcokibh",
-          "hidden": false,
-          "language": "English",
-          "fluency": "Fluent",
-          "level": 0
-        },
-        {
-          "id": "p6u4r2c5pwvfz99x927zlsi4",
-          "hidden": false,
-          "language": "Hindi",
-          "fluency": "Fluent",
-          "level": 0
-        }
-      ]
-    },
-    "interests": {
-      "title": "Interests",
-      "columns": 1,
-      "hidden": false,
-      "items": []
-    },
-    "awards": {
-      "title": "Awards",
-      "columns": 1,
-      "hidden": false,
-      "items": []
-    },
-    "certifications": {
-      "title": "Certifications",
-      "columns": 1,
-      "hidden": false,
-      "items": []
-    },
-    "publications": {
-      "title": "Publications",
-      "columns": 1,
-      "hidden": false,
-      "items": []
-    },
-    "volunteer": {
-      "title": "Volunteering",
-      "columns": 1,
-      "hidden": false,
-      "items": []
-    },
-    "references": {
-      "title": "References",
-      "columns": 1,
-      "hidden": false,
-      "items": []
+      "label": "Portfolio",
+      "url": "https://arindam.fyi"
     }
   },
   "customSections": [],
   "metadata": {
-    "template": "bronzor",
+    "css": {
+      "enabled": false,
+      "value": "* {\n\toutline: 1px solid #000;\n\toutline-offset: 4px;\n}"
+    },
+    "design": {
+      "colors": {
+        "background": "rgba(255, 255, 255, 1)",
+        "primary": "rgba(230, 157, 0, 1)",
+        "text": "rgba(0, 0, 0, 1)"
+      },
+      "level": {
+        "icon": "star",
+        "type": "progress-bar"
+      }
+    },
     "layout": {
-      "sidebarWidth": 35,
       "pages": [
         {
           "fullWidth": false,
@@ -388,50 +50,447 @@
             "awards"
           ]
         }
-      ]
+      ],
+      "sidebarWidth": 35
     },
-    "css": {
-      "enabled": false,
-      "value": "* {\n\toutline: 1px solid #000;\n\toutline-offset: 4px;\n}"
-    },
+    "notes": "",
     "page": {
+      "format": "free-form",
       "gapX": 4,
       "gapY": 6,
-      "marginX": 12,
-      "marginY": 12,
-      "format": "free-form",
+      "hideIcons": false,
       "locale": "en-US",
-      "hideIcons": false
+      "marginX": 12,
+      "marginY": 12
     },
-    "design": {
-      "level": {
-        "icon": "star",
-        "type": "progress-bar"
-      },
-      "colors": {
-        "primary": "rgba(230, 157, 0, 1)",
-        "text": "rgba(0, 0, 0, 1)",
-        "background": "rgba(255, 255, 255, 1)"
-      }
-    },
+    "template": "rhyhorn",
     "typography": {
       "body": {
         "fontFamily": "Lato",
+        "fontSize": 10.6875,
         "fontWeights": [
           "400"
         ],
-        "fontSize": 10.6875,
         "lineHeight": 1.5
       },
       "heading": {
         "fontFamily": "Lato",
+        "fontSize": 13.6875,
         "fontWeights": [
           "600"
         ],
-        "fontSize": 13.6875,
         "lineHeight": 1.5
       }
+    }
+  },
+  "picture": {
+    "aspectRatio": 1,
+    "borderColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": 100,
+    "borderWidth": 0,
+    "hidden": false,
+    "rotation": 0,
+    "shadowColor": "rgba(0, 0, 0, 0.5)",
+    "shadowWidth": 0,
+    "size": 200,
+    "url": "https://storage.rxresu.me/clp9fwawg5ioi9huno4odyqny/pictures/clpc1f3p81vnx14h56drwioxr.jpg"
+  },
+  "sections": {
+    "awards": {
+      "columns": 1,
+      "hidden": false,
+      "items": [],
+      "title": "Awards"
     },
-    "notes": ""
+    "certifications": {
+      "columns": 1,
+      "hidden": false,
+      "items": [],
+      "title": "Certifications"
+    },
+    "education": {
+      "columns": 3,
+      "hidden": false,
+      "items": [
+        {
+          "area": "Computer Science",
+          "degree": "B.E.",
+          "description": "\u003cp\u003eVemana IT \u003cbr\u003e• Bengaluru, Karnataka \u003c/p\u003e",
+          "grade": "7.0 CGPA",
+          "hidden": false,
+          "id": "gu7yjw3v3w41h3bbawpl2q5t",
+          "location": "",
+          "period": "2015 – 2019",
+          "school": "VTU",
+          "website": {
+            "label": "",
+            "url": ""
+          }
+        },
+        {
+          "area": "Computer Science",
+          "degree": "XII",
+          "description": "\u003cp\u003eK.V. Hebbal \u003cbr\u003e• Bengaluru, Karnataka\u003c/p\u003e",
+          "grade": "82.4%",
+          "hidden": false,
+          "id": "u891n483t3ua1fhs7wov4fe3",
+          "location": "",
+          "period": "2015",
+          "school": "CBSE",
+          "website": {
+            "label": "",
+            "url": ""
+          }
+        },
+        {
+          "area": "",
+          "degree": "X",
+          "description": "\u003cp\u003eK.V. A.F. Station \u003cbr\u003e• Barrackpore, West Bengal\u003c/p\u003e",
+          "grade": "9.2 CGPA",
+          "hidden": false,
+          "id": "kp2yvtfh0jcoezblgifjeorw",
+          "location": "",
+          "period": "2013",
+          "school": "CBSE",
+          "website": {
+            "label": "",
+            "url": ""
+          }
+        }
+      ],
+      "title": "Education"
+    },
+    "experience": {
+      "columns": 1,
+      "hidden": false,
+      "items": [
+        {
+          "company": "Walmart",
+          "description": "\u003cul\u003e\u003cli\u003e\u003cp\u003eManage policy manager which creates and manages tech campaigns across the originization using \u003cstrong\u003ehelm\u003c/strong\u003e files.\u003c/p\u003e\u003c/li\u003e\u003cli\u003e\u003cp\u003eCreated a \u003cstrong\u003eTCP proxy\u003c/strong\u003e tunneling service using 3proxy for managing all outgoing calls from staging and production environment across the team.\u003c/p\u003e\u003c/li\u003e\u003c/ul\u003e\u003cp\u003e\u003c/p\u003e",
+          "hidden": false,
+          "id": "019dd847-6a58-7354-b3c3-fec723b5c77a",
+          "location": "Bengaluru",
+          "options": {
+            "showLinkInTitle": false
+          },
+          "period": "April 2026 - Present",
+          "position": "Senior Software Engineer",
+          "roles": [],
+          "website": {
+            "label": "",
+            "url": "https://tech.walmart.com"
+          }
+        },
+        {
+          "company": "Coffeebeans.io",
+          "description": "\u003cp\u003eClient: \u003ca target=\"_blank\" rel=\"noopener nofollow\" href=\"https://npci.org.in\"\u003e\u003cstrong\u003eNPCI\u003c/strong\u003e\u003c/a\u003e\u003c/p\u003e\u003cul\u003e\u003cli\u003e\u003cp\u003eWorking with BHIM app team to launch Unified Bharat ev-Charging using \u003cstrong\u003eGolang\u003c/strong\u003e and \u003cstrong\u003eBeckn Protocol.\u003c/strong\u003e\u003c/p\u003e\u003c/li\u003e\u003cli\u003e\u003cp\u003e\u003cstrong\u003eDeveloped\u003c/strong\u003e a robust, high-security authentication microservice supporting multi-tenancy from ground up to streamline login flows for critical CPO and Ev Charging Network.\u003c/p\u003e\u003c/li\u003e\u003c/ul\u003e\u003cp\u003eClient: \u003cstrong\u003eKPC\u003c/strong\u003e\u003c/p\u003e\u003cul\u003e\u003cli\u003e\u003cp\u003eImplemented OAuth 2.0 and Role-Based Access Control (\u003cstrong\u003eRBAC\u003c/strong\u003e) authentication on \u003cstrong\u003eAzure AD\u003c/strong\u003e with Outsystems applications via \u003cstrong\u003ePython\u003c/strong\u003e , ensuring secure and seamless login for users.\u003c/p\u003e\u003c/li\u003e\u003cli\u003e\u003cp\u003eIntegrated Google vertex \u003cstrong\u003eRAG\u003c/strong\u003e agent for chat bot integration.\u003c/p\u003e\u003c/li\u003e\u003c/ul\u003e\u003cp\u003eClient: \u003ca target=\"_blank\" rel=\"noopener nofollow\" href=\"https://gojek.com\"\u003e\u003cstrong\u003eGojek\u003c/strong\u003e\u003c/a\u003e\u003c/p\u003e\u003cul\u003e\u003cli\u003e\u003cp\u003eDeveloped and enhanced logistics microservices using \u003cstrong\u003eGolang\u003c/strong\u003e, ensuring high performance, scalability, and seamless system integration.\u003c/p\u003e\u003c/li\u003e\u003cli\u003e\u003cp\u003e\u003cstrong\u003eCloud migration\u003c/strong\u003e initiatives from GCP to Tencent Cloud using custom Python automation scripts, achieving minimal downtime and ensuring risk mitigation.\u003c/p\u003e\u003c/li\u003e\u003c/ul\u003e\u003cp\u003e\u003c/p\u003e",
+          "hidden": false,
+          "id": "hccjgansoxbqoezw58igm8ka",
+          "location": "",
+          "options": {
+            "showLinkInTitle": true
+          },
+          "period": "Jan 2025 – March 2026",
+          "position": "Software Engineer",
+          "roles": [],
+          "website": {
+            "label": "",
+            "url": "https://coffeebeans.ai"
+          }
+        },
+        {
+          "company": "UST Global",
+          "description": "\u003cp\u003eClient: \u003ca target=\"_blank\" rel=\"noopener nofollow\" href=\"https://tech.walmart.com\"\u003e\u003cstrong\u003eWalmart Global Tech\u003c/strong\u003e\u003c/a\u003e\u003c/p\u003e\u003cul\u003e\u003cli\u003e\u003cp\u003eDeveloped an internal testing framework using \u003cstrong\u003eKubernetes\u003c/strong\u003e and \u003cstrong\u003eGolang\u003c/strong\u003e, preventing critical (p0) issues from reaching production and improving system reliability.\u003c/p\u003e\u003c/li\u003e\u003cli\u003e\u003cp\u003eImplemented \u003cstrong\u003eGRPC\u003c/strong\u003e and \u003cstrong\u003eGraphQL\u003c/strong\u003e for Walmart’s prescription-based sales, reducing API calls and ensuring low-latency communication.\u003c/p\u003e\u003c/li\u003e\u003c/ul\u003e\u003cp\u003e\u003c/p\u003e",
+          "hidden": false,
+          "id": "lwchph7gktamgupthd7x0aec",
+          "location": "",
+          "options": {
+            "showLinkInTitle": true
+          },
+          "period": "Aug 2023 – Oct 2024",
+          "position": "Software Engineer - SRE",
+          "roles": [],
+          "website": {
+            "label": "Walmart",
+            "url": "https://ust.com"
+          }
+        },
+        {
+          "company": "BYJU'S",
+          "description": "\u003cul\u003e\u003cli\u003e\u003cp\u003eBuilt a centralized tuition database using \u003cstrong\u003eGolang\u003c/strong\u003e and \u003cstrong\u003ePostgreSQL\u003c/strong\u003e, enabling efficient school data management and admin UI integration.\u003c/p\u003e\u003c/li\u003e\u003cli\u003e\u003cp\u003eDeveloped \u003cstrong\u003eKafka-based\u003c/strong\u003e applications for streamline microservices communication, serving 10k users/sec during Annual Talent Hunt Exams.\u003c/p\u003e\u003c/li\u003e\u003c/ul\u003e",
+          "hidden": false,
+          "id": "rfyzqmnoob731l3hhhllif6q",
+          "location": "",
+          "options": {
+            "showLinkInTitle": true
+          },
+          "period": "Apr 2022 – Jul 2023",
+          "position": "Software Engineer",
+          "roles": [],
+          "website": {
+            "label": "Byju's",
+            "url": "https://byjus.com"
+          }
+        },
+        {
+          "company": "Deltek (formally - Replicon)",
+          "description": "\u003cul\u003e\u003cli\u003e\u003cp\u003eEngineered REST APIs in \u003cstrong\u003eGolang\u003c/strong\u003e, optimizing team-specific frameworks and improving deliverable efficiency.\u003c/p\u003e\u003c/li\u003e\u003cli\u003e\u003cp\u003eIntegrated \u003cstrong\u003efeature flags\u003c/strong\u003e into the scripting engine, reducing release risks and accelerating the deployment process.\u003c/p\u003e\u003c/li\u003e\u003c/ul\u003e",
+          "hidden": false,
+          "id": "vffx35swrdowj68hvk5zk8z7",
+          "location": "",
+          "options": {
+            "showLinkInTitle": true
+          },
+          "period": "Aug 2019 – Mar 2022",
+          "position": "Software Engineer",
+          "roles": [],
+          "website": {
+            "label": "Replicon",
+            "url": "https://replicon.com"
+          }
+        }
+      ],
+      "title": "Experience"
+    },
+    "interests": {
+      "columns": 1,
+      "hidden": false,
+      "items": [],
+      "title": "Interests"
+    },
+    "languages": {
+      "columns": 3,
+      "hidden": false,
+      "items": [
+        {
+          "fluency": "Fluent",
+          "hidden": false,
+          "id": "or3ci1jbhe7nzm32cvcokibh",
+          "language": "English",
+          "level": 0
+        },
+        {
+          "fluency": "Fluent",
+          "hidden": false,
+          "id": "p6u4r2c5pwvfz99x927zlsi4",
+          "language": "Hindi",
+          "level": 0
+        }
+      ],
+      "title": "Languages"
+    },
+    "profiles": {
+      "columns": 3,
+      "hidden": false,
+      "items": [
+        {
+          "hidden": false,
+          "icon": "linkedin-logo",
+          "iconColor": "rgba(0, 132, 209, 1)",
+          "id": "m85ekips1prjpn08lcobe7kw",
+          "network": "Linkedin",
+          "options": {
+            "showLinkInTitle": false
+          },
+          "username": "linkedin/in/imarinzone",
+          "website": {
+            "label": "",
+            "url": "https://www.linkedin.com/in/imarinzone/"
+          }
+        },
+        {
+          "hidden": false,
+          "icon": "github-logo",
+          "iconColor": "rgba(0, 166, 62, 1)",
+          "id": "eq3ffh2cfx7zsqj0b3tx78r7",
+          "network": "github",
+          "options": {
+            "showLinkInTitle": false
+          },
+          "username": "github.com/imarinzone",
+          "website": {
+            "label": "",
+            "url": "https://github.com/imarinzone"
+          }
+        },
+        {
+          "hidden": false,
+          "icon": "file-pdf",
+          "iconColor": "",
+          "id": "019dd846-8d13-73ff-b538-1b556e98767d",
+          "network": "resume",
+          "options": {
+            "showLinkInTitle": false
+          },
+          "username": "",
+          "website": {
+            "label": "",
+            "url": "https://rxresu.me/imarinzone/resume"
+          }
+        }
+      ],
+      "title": "Profiles"
+    },
+    "projects": {
+      "columns": 1,
+      "hidden": false,
+      "items": [
+        {
+          "description": "\u003cp\u003e\u003ca target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://github.com/imarinzone/mytravelrecap\"\u003eGitHub\u003c/a\u003e \u003cbr\u003eBuilt a privacy-centric web tool that converts Google Timeline data into rich infographics and social media cards using device-only processing. Leveraged \u003cstrong\u003eGoogle AI Studio\u003c/strong\u003e and \u003cstrong\u003eCursor\u003c/strong\u003e to streamline development and implement UI and data parsing logic securely in the browser.\u003c/p\u003e\u003cp\u003e\u003c/p\u003e",
+          "hidden": false,
+          "id": "019c1899-b23d-76f3-9a66-d1bc8ec81181",
+          "name": "MyTravelRecap",
+          "options": {
+            "showLinkInTitle": true
+          },
+          "period": "",
+          "website": {
+            "label": "",
+            "url": "https://mytravelrecap.com"
+          }
+        },
+        {
+          "description": "\u003cp\u003e\u003ca target=\"_blank\" rel=\"noopener nofollow\" href=\"https://github.com/oneclick-portfolio/oneclick-portfolio.github.io\"\u003eGithub\u003c/a\u003e\u003cbr\u003eCreates and publish a live github portfolio page using pdf or \u003ca target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://rxresu.me\"\u003erxresu.me\u003c/a\u003e json schema. Supports multiple theme (created using google stitch MCP server and copilot), and AI resume pdf parser.\u003c/p\u003e\u003cp\u003e\u003c/p\u003e",
+          "hidden": false,
+          "id": "019dd83f-3af8-7149-bcdd-7f32331863a0",
+          "name": "One Click Github Portfolio",
+          "options": {
+            "showLinkInTitle": true
+          },
+          "period": "",
+          "website": {
+            "label": "",
+            "url": "https://oneclick-portfolio.github.io"
+          }
+        },
+        {
+          "description": "\u003cp\u003e\u003ca target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://github.com/imarinzone/expense-tracker\"\u003eGithub\u003c/a\u003e\u003cbr\u003eCreated a Python-based expense tracking tool with Jupyter Notebook, providing visual insights into personal finance management.\u003c/p\u003e",
+          "hidden": false,
+          "id": "htwtcn39wo3nu6k7224skhfm",
+          "name": "Expense Tracking",
+          "options": {
+            "showLinkInTitle": false
+          },
+          "period": "",
+          "website": {
+            "label": "",
+            "url": ""
+          }
+        },
+        {
+          "description": "\u003cp\u003e\u003ca target=\"_blank\" rel=\"noopener nofollow\" href=\"https://github.com/imarinzone/TraceAnything.git\"\u003eGitHub\u003c/a\u003e\u003cbr\u003eAn PWA which can help you to trace any image using your phone as a tracing paper.\u003c/p\u003e",
+          "hidden": false,
+          "id": "019d0a65-f2e4-76b8-a67c-d22dd7396a95",
+          "name": "TraceAnything",
+          "options": {
+            "showLinkInTitle": true
+          },
+          "period": "",
+          "website": {
+            "label": "",
+            "url": "https://traceanything-294661137879.us-west1.run.app/"
+          }
+        }
+      ],
+      "title": "Projects"
+    },
+    "publications": {
+      "columns": 1,
+      "hidden": false,
+      "items": [],
+      "title": "Publications"
+    },
+    "references": {
+      "columns": 1,
+      "hidden": false,
+      "items": [],
+      "title": "References"
+    },
+    "skills": {
+      "columns": 3,
+      "hidden": false,
+      "items": [
+        {
+          "hidden": false,
+          "icon": "",
+          "iconColor": "",
+          "id": "j1n3oc1upap0fe10j0qupvuv",
+          "keywords": [
+            "Golang",
+            "Python"
+          ],
+          "level": 0,
+          "name": "Programming Languges",
+          "proficiency": ""
+        },
+        {
+          "hidden": false,
+          "icon": "",
+          "iconColor": "",
+          "id": "u95jz92ma37gv6weyo5asxvu",
+          "keywords": [
+            "Docker",
+            "yaml",
+            "Git",
+            "kafka",
+            "kubernetics"
+          ],
+          "level": 0,
+          "name": "Tools",
+          "proficiency": ""
+        },
+        {
+          "hidden": false,
+          "icon": "",
+          "iconColor": "",
+          "id": "w4681z5e66doxy76zlmyjopf",
+          "keywords": [
+            "postgreSQL",
+            "MySQL"
+          ],
+          "level": 0,
+          "name": "Database",
+          "proficiency": ""
+        },
+        {
+          "hidden": false,
+          "icon": "",
+          "iconColor": "",
+          "id": "esvvyeadiynjnmlsqh8hkflj",
+          "keywords": [
+            "AWS",
+            "Azure",
+            "GCP",
+            "Tencent/Alibaba"
+          ],
+          "level": 0,
+          "name": "Cloud Platform",
+          "proficiency": ""
+        },
+        {
+          "hidden": false,
+          "icon": "",
+          "iconColor": "",
+          "id": "wqsn9w2bx1w5dlfwj8sg6nlq",
+          "keywords": [],
+          "level": 0,
+          "name": "REST APIs / GraphQL / gRPC",
+          "proficiency": ""
+        }
+      ],
+      "title": "Skills"
+    },
+    "volunteer": {
+      "columns": 1,
+      "hidden": false,
+      "items": [],
+      "title": "Volunteering"
+    }
+  },
+  "summary": {
+    "columns": 1,
+    "content": "\u003cp\u003eExperienced Software Developer with 6+ years of expertise in GoLang, Python, and cloud-based web services. Proven track record of designing scalable and secure, leveraging Kubernetes, AWS, and microservices architecture. Passionate about backend development and optimizing system reliability and efficiency.\u003c/p\u003e\u003cp\u003e\u003c/p\u003e",
+    "hidden": false,
+    "title": "Summary"
   }
 }
